@@ -341,7 +341,7 @@ function App() {
                         </div>
 
 
-                <div className="flex flex-col items-center p-4 mt-4 text-xs">
+                <div className="flex flex-col items-center mt-4 text-xs">
                     <p>شكراً لتسوقك معنا</p>
                     <p>Thank you for shopping with us</p>
                     <p className="mt-2">
