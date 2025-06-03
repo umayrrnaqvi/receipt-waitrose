@@ -345,7 +345,7 @@ function App() {
                     <p>شكراً لتسوقك معنا</p>
                     <p>Thank you for shopping with us</p>
                     <p className="mt-2">
-                        We are happy to refund or exchange any item that you are not 100% satisfied with
+                        We are happy to refund or exchange any item <br /> that you are not 100% satisfied with
                     </p>
                     <p className="mt-2">Did you enjoy your shopping experience?</p>
                     <p>Do you think we could improve?</p>
