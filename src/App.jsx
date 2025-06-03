@@ -332,13 +332,10 @@ function App() {
                     </div>
                 </div>
 
-                <div className="text-xs font-mono text-center mt-2 border-b border-black pb-5">
-                    VAT 2072 &nbsp;&nbsp;
-                    0009/006/102 &nbsp;&nbsp;
-                    {formatDate(now)} &nbsp;&nbsp;
-                    {formatTime(now)} &nbsp;&nbsp;
-                    AC-00
+                <div className="text-[12px] sm:text-xs font-mono text-center mt-2 border-b border-black pb-5 tracking-tight">
+                     2072&nbsp;0009/006/102&nbsp;{formatDate(now)}&nbsp;{formatTime(now)}&nbsp;AC-00
                 </div>
+
 
 
                 <div className="w-full max-w-xs mx-auto px-4 flex flex-col items-center mt-4 text-center text-xs">
