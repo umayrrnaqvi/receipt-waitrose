@@ -170,13 +170,13 @@ function App() {
 
 
     return (
-  <div className="min-h-screen bg-white p-6 text-black font-mono">
+        <div className="min-h-screen bg-white p-6 text-black font-mono">
             <h1 className="text-3xl font-bold text-center mb-8 no-print">
                 Waitrose Receipt Generator
             </h1>
 
             {/* Item Input Section */}
-    <div className="flex flex-wrap gap-4 mb-6 justify-center no-print">
+            <div className="flex flex-wrap gap-4 mb-6 justify-center no-print">
                 <select
                     value={category}
                     onChange={(e) => {
@@ -304,48 +304,48 @@ function App() {
                 </table>
 
                 <div className="pt-2 mt-4 text-sm font-mono">
-                            {/* Total */}
-                            <div className="flex justify-between font-bold uppercase tracking-widest">
-                                <span className="uppercase tracking-[0.7em]">Total</span>
-                                <span>{total.toFixed(2)}</span>
-                            </div>
+                    {/* Total */}
+                    <div className="flex justify-between font-bold uppercase tracking-widest">
+                        <span className="uppercase tracking-[0.7em]">Total</span>
+                        <span>{total.toFixed(2)}</span>
+                    </div>
 
-                            {/* Instashop Label */}
-                            <div className="flex justify-between mt-2 tracking-widest">
-                                <span>Instashop</span>
-                                <span>AED</span>
-                                <span>{total.toFixed(2)}</span>
-                            </div>
+                    {/* Instashop Label */}
+                    <div className="flex justify-between mt-2 tracking-widest">
+                        <span>Instashop</span>
+                        <span>AED</span>
+                        <span>{total.toFixed(2)}</span>
+                    </div>
 
-                            {/* Net Total */}
-                            <div className="flex justify-between uppercase mt-1 tracking-widest">
-                                <span>Net Total</span>
-                                <span>VAT V</span>
-                                <span>{netTotal.toFixed(2)}</span>
-                            </div>
+                    {/* Net Total */}
+                    <div className="flex justify-between uppercase mt-1 tracking-widest">
+                        <span>Net Total</span>
+                        <span>VAT V</span>
+                        <span>{netTotal.toFixed(2)}</span>
+                    </div>
 
-                            {/* VAT */}
-                            <div className="flex justify-between mt-1 text-sm">
-                                <span>VAT</span>
-                                <span>05.0%</span>
-                                <span>{vatAmount.toFixed(2)}</span>
-                            </div>
-                        </div>
+                    {/* VAT */}
+                    <div className="flex justify-between mt-1 text-sm">
+                        <span>VAT</span>
+                        <span>05.0%</span>
+                        <span>{vatAmount.toFixed(2)}</span>
+                    </div>
+                </div>
 
-                        <div className="text-xs font-mono text-center mt-2 border-b border-black pb-5">
-                            VAT 2072 &nbsp;&nbsp;
-                            0009/006/102 &nbsp;&nbsp;
-                            {formatDate(now)} &nbsp;&nbsp;
-                            {formatTime(now)} &nbsp;&nbsp;
-                            AC-00
-                        </div>
+                <div className="text-xs font-mono text-center mt-2 border-b border-black pb-5">
+                    VAT 2072 &nbsp;&nbsp;
+                    0009/006/102 &nbsp;&nbsp;
+                    {formatDate(now)} &nbsp;&nbsp;
+                    {formatTime(now)} &nbsp;&nbsp;
+                    AC-00
+                </div>
 
 
-                <div className="flex flex-col items-center mt-4 text-xs">
+                <div className="w-full max-w-xs mx-auto px-4 flex flex-col items-center mt-4 text-center text-xs">
                     <p>شكراً لتسوقك معنا</p>
                     <p>Thank you for shopping with us</p>
                     <p className="mt-2">
-                        We are happy to refund or exchange any <br />item that you are not 100% satisfied with
+                        We are happy to refund or exchange any item that you are not 100% satisfied with
                     </p>
                     <p className="mt-2">Did you enjoy your shopping experience?</p>
                     <p>Do you think we could improve?</p>
