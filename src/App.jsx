@@ -114,6 +114,8 @@ function App() {
     const [quantity, setQuantity] = useState(1);
     const [price, setPrice] = useState("");
     const [orderId, setOrderId] = useState("");
+    const [currentDateTime, setCurrentDateTime] = useState(new Date());
+
 
     const generateOrderId = () => Date.now().toString();
 
@@ -146,6 +148,8 @@ function App() {
 
     const now = new Date();
 
+
+    // Format date as dd.mm.yy
     const formatDate = (date) => {
         const day = String(date.getDate()).padStart(2, '0');
         const month = String(date.getMonth() + 1).padStart(2, '0');
@@ -153,11 +157,18 @@ function App() {
         return `${day}.${month}.${year}`;
     };
 
-    const formatTime = () => {
-        const hours = String(now.getHours()).padStart(2, '0'); // 0-23
-        const minutes = String(now.getMinutes()).padStart(2, '0');
-        return `${hours}:${minutes}`;
-    };
+
+   const formatTime = (date) => {
+    // getHours() returns hours in 24-hour format (0-23)
+    const hours = String(date.getHours()).padStart(2, '0');
+    const minutes = String(date.getMinutes()).padStart(2, '0');
+    return `${hours}:${minutes}`;
+};
+
+
+console.log(formatTime(new Date())); // e.g. "14:07"
+
+
 
     // Calculate VAT and Net Total
     const total = calculateTotal();
@@ -238,17 +249,23 @@ function App() {
                     <h2 className="text-xl font-bold tracking-wide">Waitrose ويتروز</h2>
                     <p className="text-xs mt-1">لا تنسى حقيبة التسوق الصديقة للبيئة</p>
                     <p className="text-xs mb-2">Don't forget your reusable bags</p>
-                    <div className="text-xs flex justify-center gap-5 border-t border-b border-black py-1 mt-2">
+                    <div className="text-xs flex justify-center gap-5 border-t border-b border-dotted py-1 mt-2">
                         <div>
                             <p>Waitrose.ae:</p>
-                            <p>Head Office:</p>
+                            <p>Address:</p>
                         </div>
                         <div>
                             <p>04-5727484</p>
-                            <p>04-2743333</p>
+                            <p>LG – 144, Financial Centre Road, Downtown Dubai</p>
                         </div>
                     </div>
-                    <div className="text-xs mt-2 text-left border-b border-black py-1">
+
+                    <div className="flex justify-between mt-2 border-b border-dotted py-2">
+                        <p> Date: {formatDate(now)}</p>
+                        <p>Time: {formatTime(now)}</p>
+                    </div>
+
+                    <div className="text-xs mt-2 text-left border-b border-dotted py-1">
                         <p className="flex justify-between">
                             <span>Tax Invoice</span>
                             <span>فاتورة ضريبية</span>
@@ -303,7 +320,7 @@ function App() {
                     </tbody>
                 </table>
 
-                <div className="pt-2 mt-4 text-sm font-mono">
+                <div className="pt-2 mt-4 text-sm font-mono border-b border-dotted pb-5">
                     {/* Total */}
                     <div className="flex justify-between font-bold uppercase tracking-widest">
                         <span className="uppercase tracking-[0.7em]">Total</span>
@@ -332,9 +349,9 @@ function App() {
                     </div>
                 </div>
 
-                <div className="text-[12px] sm:text-xs font-mono text-center mt-2 border-b border-black pb-5 tracking-tight">
+                {/* <div className="text-[12px] sm:text-xs font-mono text-center mt-2 border-b border-dotted pb-5 tracking-tight">
                      2072&nbsp;0009/006/102&nbsp;{formatDate(now)}&nbsp;{formatTime(now)}&nbsp;AC-00
-                </div>
+                </div> */}
 
 
 
