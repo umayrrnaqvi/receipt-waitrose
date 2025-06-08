@@ -109,13 +109,13 @@ const data = {
     ]
 };
 
-function page() {
+function Page() {
     const [items, setItems] = useState([]);
     const [category, setCategory] = useState("Fruits");
     const [selectedItem, setSelectedItem] = useState("");
     const [quantity, setQuantity] = useState(1);
     const [price, setPrice] = useState("");
-    const [orderId, setOrderId] = useState("");
+    // const [orderId, setOrderId] = useState("");
     const [currentDateTime, setCurrentDateTime] = useState(new Date());
 
 
