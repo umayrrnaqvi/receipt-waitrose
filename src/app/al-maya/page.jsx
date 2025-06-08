@@ -116,7 +116,7 @@ function Page() {
     const [quantity, setQuantity] = useState(1);
     const [price, setPrice] = useState("");
     // const [orderId, setOrderId] = useState("");
-    const [currentDateTime, setCurrentDateTime] = useState(new Date());
+    // const [currentDateTime, setCurrentDateTime] = useState(new Date());
 
 
     const generateOrderId = () => Date.now().toString();

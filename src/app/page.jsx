@@ -109,7 +109,7 @@ const data = {
     ]
 };
 
-function page() {
+function Page() {
     const [items, setItems] = useState([]);
     const [category, setCategory] = useState("Fruits");
     const [selectedItem, setSelectedItem] = useState("");
