@@ -144,9 +144,9 @@ function Page() {
     const calculateTotal = () =>
         items.reduce((total, item) => total + item.quantity * parseFloat(item.price), 0);
 
-    useEffect(() => {
-        setOrderId(generateOrderId());
-    }, []);
+    // useEffect(() => {
+    //     setOrderId(generateOrderId());
+    // }, []);
 
     const now = new Date();
 
