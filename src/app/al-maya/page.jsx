@@ -1,6 +1,6 @@
 'use client';
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState} from "react";
 
 const data = {
     Fruits: [
@@ -383,7 +383,7 @@ function Page() {
             <div className="mt-6 flex justify-center no-print">
                 <button
                     onClick={() => {
-                        setOrderId(generateOrderId());
+                        // setOrderId(generateOrderId());
                         setTimeout(() => window.print(), 100);
                     }}
                     className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700"
