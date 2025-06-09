@@ -323,8 +323,8 @@ const Page = () => {
                                     {/* Barcode */}
                                     <td className="py-1 flex flex-col font-mono text-sm uppercase tracking-wide ">{item.barcode}
                                         {/* Item name and Arabic */}
+                                        <td className="font-arabic font-bold"> {item.arabic} </td>
                                         <td className="py-1">
-                                            <td className="font-arabic font-bold"> {item.arabic} </td>
                                             {item.name}
                                         </td>
                                     </td>
