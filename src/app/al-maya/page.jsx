@@ -119,7 +119,7 @@ function Page() {
     // const [currentDateTime, setCurrentDateTime] = useState(new Date());
 
 
-    const generateOrderId = () => Date.now().toString();
+    // const generateOrderId = () => Date.now().toString();
 
     const handleAddItem = () => {
         if (!selectedItem || !price || quantity <= 0) return;
