@@ -1,6 +1,6 @@
 'use client';
 import React from "react";
-import { useState} from "react";
+import { useState } from "react";
 
 const data = {
     Fruits: [
@@ -109,7 +109,7 @@ const data = {
     ]
 };
 
- export function Page() {
+const Page = () => {
     const [items, setItems] = useState([]);
     const [category, setCategory] = useState("Fruits");
     const [selectedItem, setSelectedItem] = useState("");
@@ -305,14 +305,14 @@ const data = {
                             items.map((item) => (
                                 <tr key={item.id}>
                                     <td className="py-1">
-                                        {item.arabic}<br/>
-                                        {item.name} 
+                                        {item.arabic}<br />
+                                        {item.name}
                                     </td>
                                     <td className="py-1">
-                                      {item.quantity}
+                                        {item.quantity}
                                     </td>
                                     <td className="py-1 text-right">
-                                     {(item.quantity * parseFloat(item.price)).toFixed(2)} A
+                                        {(item.quantity * parseFloat(item.price)).toFixed(2)} A
                                     </td>
                                 </tr>
                             ))
