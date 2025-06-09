@@ -118,8 +118,9 @@ const Page = () => {
     // const [orderId, setOrderId] = useState("");
     // const [currentDateTime, setCurrentDateTime] = useState(new Date());
 
-
-    // const generateOrderId = () => Date.now().toString();
+    const generateBarcodeNumber = () => {
+        return Date.now().toString(); // Unique barcode number as string
+    };
 
     const handleAddItem = () => {
         if (!selectedItem || !price || quantity <= 0) return;
@@ -131,7 +132,8 @@ const Page = () => {
             arabic: itemData.arabic,
             quantity,
             price,
-            id: Date.now()
+            id: Date.now(),               // Keep id for React keys or anything else
+            barcode: generateBarcodeNumber() // Assign barcode here
         };
 
         setItems([...items, newItem]);
@@ -141,8 +143,15 @@ const Page = () => {
     };
 
 
-    const calculateTotal = () =>
-        items.reduce((total, item) => total + item.quantity * parseFloat(item.price), 0);
+
+    const calculateTotal = () => {
+        const fixedItemPrice = 25; // e.g., for "SHOP BAG PLAIN L"
+        return (
+            items.reduce((total, item) => total + item.quantity * parseFloat(item.price), 0) +
+            fixedItemPrice
+        );
+    };
+
 
     // useEffect(() => {
     //     setOrderId(generateOrderId());
@@ -150,6 +159,13 @@ const Page = () => {
 
     const now = new Date();
 
+    const fixedItem = {
+        name: "SHOP BAG PLAIN L",
+        arabic: "حقيبة التسوق",
+        quantity: 1,
+        price: 25,
+        barcode: "920112001231",
+    };
 
     // Format date as dd.mm.yy
     const formatDate = (date) => {
@@ -250,15 +266,15 @@ const Page = () => {
                 <div className="text-center mb-4 leading-tight">
                     <div className="text-left">
                         <h2 className="text-[50px] font-sans font-bold tracking-wide pl-5">al maya</h2>
-                        <p className="text-[15px] text-center font-mono font-[600] pl-25">supermarkets</p>
-                        <p className="text-[15px] font-mono font-[600]">
+                        <p className="text-[15px] text-center font-mono font-bold pl-25">supermarkets</p>
+                        <p className="text-[15px] font-mono font-bold">
                             Al Maya Supermarket LLC-(Br. )<br />
                             Unit No-3 Lower Ground Floor, X Tow <br />
                             C6-C9, Sector RT4, <br />
                             Sulian Bin Zayed First Street,<br />
                             Al Reem Island, Abu Dhabi
                         </p>
-                        <p className="text-[15px] font-mono font-[600]">
+                        <p className="text-[15px] font-mono font-bold">
                             TRN: 100065888900003
                         </p>
                     </div>
@@ -270,7 +286,7 @@ const Page = () => {
                     </div>
 
                     <div className=" border-b-2 border-gray-500 border-dashed py-2">
-                        <p className="text-[15px] flex gap-15 font-mono font-[600]">
+                        <p className="text-[15px] flex gap-10 font-mono font-bold">
                             <span>MANAGER:MR.RAM</span>
                             <span> PH 02-6278680</span>
                         </p>
@@ -304,13 +320,22 @@ const Page = () => {
                         {items.length > 0 ? (
                             items.map((item) => (
                                 <tr key={item.id}>
-                                    <td className="py-1">
-                                        {item.arabic}<br />
-                                        {item.name}
+                                    {/* Barcode */}
+                                    <td className="py-1 flex flex-col font-mono text-sm uppercase tracking-wide ">{item.barcode}
+                                        {/* Item name and Arabic */}
+                                        <td className="py-1">
+                                            <td className="font-arabic font-bold"> {item.arabic} </td>
+                                            {item.name}
+                                        </td>
                                     </td>
-                                    <td className="py-1">
-                                        {item.quantity}
+
+                                    {/* Unit Price and Quantity stacked vertically and centered */}
+                                    <td className="py-1 text-center font-mono text-sm uppercase tracking-wide">
+                                        <div>{parseFloat(item.price).toFixed(2)}</div>
+                                        <div className="font-mono text-sm uppercase tracking-wide">{item.quantity} PC </div>
                                     </td>
+
+                                    {/* Total Price */}
                                     <td className="py-1 text-right">
                                         {(item.quantity * parseFloat(item.price)).toFixed(2)} A
                                     </td>
@@ -318,64 +343,111 @@ const Page = () => {
                             ))
                         ) : (
                             <tr>
-                                <td colSpan="2" className="text-center text-gray-400 py-2">
+                                <td colSpan="4" className="text-center text-gray-400 py-2">
                                     No items added.
                                 </td>
                             </tr>
                         )}
-
                     </tbody>
                 </table>
 
-                <div className=" flex gap-5 tracking-widest">
-                    <span className="uppercase"> Items:</span>
-                    <span>{totalItemsCount}</span>
+                <div className="flex justify-between border-b-2 border-gray-500 border-dashed">
+                    <div>
+                        <p className="font-mono text-sm uppercase tracking-wide">{fixedItem.barcode}</p>
+                        <p className="font-arabic font-bold">{fixedItem.arabic}</p>
+                        <p>{fixedItem.name}</p>
+                    </div>
+
+                    <div className="text-center font-mono text-sm uppercase tracking-wide">
+                        <p>{fixedItem.price}</p>
+                        <p className="mt-4">{fixedItem.quantity} PC</p>
+                    </div>
+
+                    <div className="mt-9">
+                        <p>{fixedItem.price} A</p>
+                    </div>
                 </div>
 
-                <div className="pt-2 mt-4 text-sm font-mono border-b border-dotted pb-5">
-                    {/* Total */}
-                    <div className="flex justify-between font-bold uppercase tracking-widest">
-                        <span className="uppercase tracking-[0.7em]">Total</span>
-                        <span>{total.toFixed(2)}</span>
-                    </div>
 
-                    {/* Instashop Label */}
-                    <div className="flex justify-between mt-2 tracking-widest">
-                        <span>Instashop</span>
-                        <span>AED</span>
-                        <span>{total.toFixed(2)}</span>
-                    </div>
 
-                    {/* Net Total */}
-                    <div className="flex justify-between uppercase mt-1 tracking-widest">
-                        <span>Net Total</span>
-                        <span>VAT V</span>
+                <div className="flex justify-between font-mono font-bold tracking-widest mt-2 pb-2 border-b-2 border-gray-500 border-dashed">
+                    <span className="uppercase">AED*TOT INCL VAT Items: {totalItemsCount}</span>
+                    <span>{netTotal.toFixed(2)}</span>
+                </div>
+
+
+                <div className="mt-2 text-sm font-mono">
+
+                    <div className="flex justify-around font-mono uppercase tracking-widest">
+                        <span className="uppercase">AED AGGREGATOR ONLINE</span>
                         <span>{netTotal.toFixed(2)}</span>
                     </div>
 
+                    <div className="flex justify-around items-center border-b-2 border-gray-500 border-dashed ">
+                        <div className="flex flex-col">
+                            <p className="font-arabic font-bold">الباقي</p>
+                            <p className="uppercase">AED CHANGE </p>
+                        </div>
+                        <p className="mt-5">00</p>
+                    </div>
+
+                    <div className="border-b-2 border-gray-500 border-dashed">
+
+                        <div className="flex gap-16 font-mono mt-2 tracking-widest">
+                            <span>CUST NO</span>
+                            <span>:227680</span>
+                        </div>
+
+                        <div className="flex gap-11 font-mono mt-2 tracking-widest">
+                            <span>CUST NAME</span>
+                            <span>:Instashop DMCC</span>
+                        </div>
+
+                        <div className="flex gap-2 font-mono mt-2 tracking-widest">
+                            <span>CUST ORDER NO</span>
+                            <span>:4628434</span>
+                        </div>
+
+                        <div className="flex gap-18 font-mono mt-2 tracking-widest">
+                            <span>TRN NO</span>
+                            <span>:100059429900003</span>
+                        </div>
+
+                    </div>
+
+                    <div className="border-b-2 border-gray-500 border-dashed">
+                        <p className="font-mono font-bold text-sm uppercase tracking-wide flex items-center gap-5 mt-2">
+                            {formatDate(now)} {formatTime(now)}
+                            <span>4136137</span>
+                            <span>0285</span>
+                            <span>TILAK</span></p>
+                    </div>
+
                     {/* VAT */}
-                    <div className="flex justify-between mt-1 text-sm">
-                        <span>VAT</span>
-                        <span>05.0%</span>
+                    <div className="flex justify-between mt-1 text-sm border-b-2 border-gray-500 border-dashed">
+                        <p className="flex flex-col">
+                            <span className="font-arabic font-bold">ضريبة القيمة</span>
+                            <span className="font-mono">VAT%</span> </p>
+                        <p className="flex flex-col">
+                            <span className="font-arabic font-bold">المبلغ ( ضريبة)</span>
+                            <span className="font-mono">AMOUNT(excl VAT)</span> </p>
+                        <p className="flex flex-col">
+                            <span className="font-arabic font-bold">قيمة الضريبة</span>
+                            <span className="font-mono"> VAT AMOUNT</span> </p>
+                    </div>
+
+                    <div className="flex justify-around border-b-2 border-gray-500 border-dashed">
+                        <span>5%</span>
+                        <span>{netTotal.toFixed(2)}</span>
                         <span>{vatAmount.toFixed(2)}</span>
                     </div>
-                </div>
 
-                {/* <div className="text-[12px] sm:text-xs font-mono text-center mt-2 border-b border-dotted pb-5 tracking-tight">
-                     2072&nbsp;0009/006/102&nbsp;{formatDate(now)}&nbsp;{formatTime(now)}&nbsp;AC-00
-                </div> */}
-
-
-
-                <div className="w-full max-w-xs mx-auto px-4 flex flex-col items-center mt-4 text-center text-xs">
-                    <p>شكراً لتسوقك معنا</p>
-                    <p>Thank you for shopping with us</p>
-                    <p className="mt-2">
-                        We are happy to refund or exchange any item that you are not 100% satisfied with
-                    </p>
-                    <p className="mt-2">Did you enjoy your shopping experience?</p>
-                    <p>Do you think we could improve?</p>
-                    <p>We would love to hear your feedback.</p>
+                    <div>
+                        <p className="font-mono font-bold text-sm uppercase tracking-wide flex items-center gap-5 mt-2">
+                            ITEM EXCHANGE WITHIN 7 DAYS <br />
+                            THANK YOU COME AGAIN
+                        </p>
+                    </div>
                 </div>
             </div>
 

@@ -1,33 +1,20 @@
 {
   "pages": {
-    "/_not-found/page": [
-      "static/chunks/webpack-de8c45a8221cb9dc.js",
-      "static/chunks/4bd1b696-52a6696c08e3276c.js",
-      "static/chunks/684-fa00602c1cb6ab8e.js",
-      "static/chunks/main-app-602c5a217782cbf4.js",
-      "static/chunks/app/_not-found/page-5bfe245ad955586d.js"
-    ],
     "/layout": [
-      "static/chunks/webpack-de8c45a8221cb9dc.js",
-      "static/chunks/4bd1b696-52a6696c08e3276c.js",
-      "static/chunks/684-fa00602c1cb6ab8e.js",
-      "static/chunks/main-app-602c5a217782cbf4.js",
-      "static/css/9db40a825ae663c3.css",
-      "static/chunks/app/layout-d45a354ec1af270b.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/layout.css",
+      "static/chunks/app/layout.js"
     ],
     "/page": [
-      "static/chunks/webpack-de8c45a8221cb9dc.js",
-      "static/chunks/4bd1b696-52a6696c08e3276c.js",
-      "static/chunks/684-fa00602c1cb6ab8e.js",
-      "static/chunks/main-app-602c5a217782cbf4.js",
-      "static/chunks/app/page-35993de93b0744f9.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/page.js"
     ],
     "/al-maya/page": [
-      "static/chunks/webpack-de8c45a8221cb9dc.js",
-      "static/chunks/4bd1b696-52a6696c08e3276c.js",
-      "static/chunks/684-fa00602c1cb6ab8e.js",
-      "static/chunks/main-app-602c5a217782cbf4.js",
-      "static/chunks/app/al-maya/page-a0805bef425398aa.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/al-maya/page.js"
     ]
   }
 }
