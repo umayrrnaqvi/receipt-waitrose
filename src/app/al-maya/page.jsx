@@ -289,7 +289,7 @@ const AlMayaPage = () => {
                     </div>
 
                     <div className=" border-b-2 border-gray-500 border-dashed py-2">
-                        <p className="text-[15px] flex gap-10 font-mono font-bold">
+                        <p className="text-[15px] flex gap-12 font-mono font-bold">
                             <span>MANAGER:MR.RAM</span>
                             <span> PH 02-6278680</span>
                         </p>
@@ -403,7 +403,7 @@ const AlMayaPage = () => {
 
 
                     <div className="border-b-2 border-gray-500 border-dashed">
-                        <p className="font-mono font-bold text-sm uppercase tracking-wide flex items-center gap-5 mt-2">
+                        <p className=" text-[12px] font-mono font-bold text-sm uppercase tracking-wide flex items-center gap-5 mt-2">
                             {formatDate(now)} {formatTime(now)}
                             <span>4136137</span>
                             <span>0285</span>
@@ -413,13 +413,13 @@ const AlMayaPage = () => {
                     {/* VAT */}
                     <div className="flex justify-between mt-1 text-sm border-b-2 border-gray-500 border-dashed">
                         <p className="flex flex-col">
-                            <span className="font-arabic font-bold">ضريبة القيمة</span>
+                            <span className="text-[11px] font-arabic font-bold">ضريبة القيمة</span>
                             <span className="font-mono">VAT%</span> </p>
                         <p className="flex flex-col">
-                            <span className="font-arabic font-bold">المبلغ ( ضريبة)</span>
+                            <span className="text-[11px] font-arabic font-bold">المبلغ ( ضريبة)</span>
                             <span className="font-mono">AMOUNT(excl VAT)</span> </p>
                         <p className="flex flex-col">
-                            <span className="font-arabic font-bold">قيمة الضريبة</span>
+                            <span className=" text-[11px] font-arabic font-bold">قيمة الضريبة</span>
                             <span className="font-mono"> VAT AMOUNT</span> </p>
                     </div>
 
@@ -455,4 +455,4 @@ const AlMayaPage = () => {
     );
 }
 
-export default AlMayaPage;
+export default AlMayaPage
