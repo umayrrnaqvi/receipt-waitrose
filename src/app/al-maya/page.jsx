@@ -109,6 +109,7 @@ const data = {
     ]
 };
 
+export const dynamic = 'force-dynamic';
 const AlMayaPage = () => {
     const [items, setItems] = useState([]);
     const [category, setCategory] = useState("Fruits");
