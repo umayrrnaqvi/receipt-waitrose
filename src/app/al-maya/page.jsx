@@ -109,7 +109,7 @@ const data = {
     ]
 };
 
-const Page = () => {
+const AlMayaPage = () => {
     const [items, setItems] = useState([]);
     const [category, setCategory] = useState("Fruits");
     const [selectedItem, setSelectedItem] = useState("");
@@ -401,29 +401,6 @@ const Page = () => {
                         <p className="mt-5">00</p>
                     </div>
 
-                    {/* <div className="border-b-2 border-gray-500 border-dashed">
-
-                        <div className="flex gap-16 font-mono mt-2 tracking-widest">
-                            <span>CUST NO</span>
-                            <span>:227680</span>
-                        </div>
-
-                        <div className="flex gap-11 font-mono mt-2 tracking-widest">
-                            <span>CUST NAME</span>
-                            <span>:Instashop DMCC</span>
-                        </div>
-
-                        <div className="flex gap-2 font-mono mt-2 tracking-widest">
-                            <span>CUST ORDER NO</span>
-                            <span>:4628434</span>
-                        </div>
-
-                        <div className="flex gap-18 font-mono mt-2 tracking-widest">
-                            <span>TRN NO</span>
-                            <span>:100059429900003</span>
-                        </div>
-
-                    </div> */}
 
                     <div className="border-b-2 border-gray-500 border-dashed">
                         <p className="font-mono font-bold text-sm uppercase tracking-wide flex items-center gap-5 mt-2">
@@ -478,4 +455,4 @@ const Page = () => {
     );
 }
 
-export default Page
+export default AlMayaPage;
