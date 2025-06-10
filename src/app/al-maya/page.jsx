@@ -414,13 +414,13 @@ const AlMayaPage = () => {
                     {/* VAT */}
                     <div className="flex justify-between mt-1 text-sm border-b-2 border-gray-500 border-dashed">
                         <p className="flex flex-col">
-                            <span className="text-[11px] font-arabic font-bold">ضريبة القيمة</span>
+                            <span className="text-[10px] font-arabic font-bold">ضريبة القيمة</span>
                             <span className="font-mono">VAT%</span> </p>
                         <p className="flex flex-col">
-                            <span className="text-[11px] font-arabic font-bold">المبلغ ( ضريبة)</span>
+                            <span className="text-[10px] font-arabic font-bold">المبلغ ( ضريبة)</span>
                             <span className="font-mono">AMOUNT(excl VAT)</span> </p>
                         <p className="flex flex-col">
-                            <span className=" text-[11px] font-arabic font-bold">قيمة الضريبة</span>
+                            <span className=" text-[10px] font-arabic font-bold">قيمة الضريبة</span>
                             <span className="font-mono"> VAT AMOUNT</span> </p>
                     </div>
 
