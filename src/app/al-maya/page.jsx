@@ -1,6 +1,6 @@
 'use client';
 import React from "react";
-import { useState } from "react";
+import { useState , useEffect} from "react";
 
 const data = {
     Fruits: [
@@ -115,7 +115,7 @@ const Page = () => {
     const [selectedItem, setSelectedItem] = useState("");
     const [quantity, setQuantity] = useState(1);
     const [price, setPrice] = useState("");
-    // const [orderId, setOrderId] = useState("");
+    const [orderId, setOrderId] = useState("");
     // const [currentDateTime, setCurrentDateTime] = useState(new Date());
 
     const generateBarcodeNumber = () => {
@@ -153,9 +153,12 @@ const Page = () => {
     };
 
 
-    // useEffect(() => {
-    //     setOrderId(generateOrderId());
-    // }, []);
+    useEffect(() => {
+        setOrderId(generateOrderId());
+    }, []);
+
+        const generateOrderId = () => Date.now().toString();
+
 
     const now = new Date();
 
@@ -297,6 +300,13 @@ const Page = () => {
                             <span>TRANS: 285</span></p>
                         <p className="flex font-mono text-sm uppercase tracking-wide">
                             Cashier: 114327/TILAK</p>
+
+                        <div>
+                            <p className="flex gap-20 mt-2 font-mono text-sm">
+                                <span>ORDER ID</span>
+                                <span>{orderId}</span>
+                            </p>
+                        </div>
                         <div className="flex justify-between mt-2">
                             <p className="flex flex-col items-start font-mono text-sm uppercase tracking-wide">
                                 <span>BARCODE</span>
@@ -391,7 +401,7 @@ const Page = () => {
                         <p className="mt-5">00</p>
                     </div>
 
-                    <div className="border-b-2 border-gray-500 border-dashed">
+                    {/* <div className="border-b-2 border-gray-500 border-dashed">
 
                         <div className="flex gap-16 font-mono mt-2 tracking-widest">
                             <span>CUST NO</span>
@@ -413,7 +423,7 @@ const Page = () => {
                             <span>:100059429900003</span>
                         </div>
 
-                    </div>
+                    </div> */}
 
                     <div className="border-b-2 border-gray-500 border-dashed">
                         <p className="font-mono font-bold text-sm uppercase tracking-wide flex items-center gap-5 mt-2">
@@ -456,7 +466,7 @@ const Page = () => {
             <div className="mt-6 flex justify-center no-print">
                 <button
                     onClick={() => {
-                        // setOrderId(generateOrderId());
+                        setOrderId(generateOrderId());
                         setTimeout(() => window.print(), 100);
                     }}
                     className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700"
