@@ -22,13 +22,6 @@
       "static/chunks/main-app-0cd6e5ac716c8aab.js",
       "static/chunks/app/page-0e11d9a7e8957d80.js"
     ],
-    "/al-maya/page": [
-      "static/chunks/webpack-de8c45a8221cb9dc.js",
-      "static/chunks/4bd1b696-52a6696c08e3276c.js",
-      "static/chunks/684-4fbcbb3a16540564.js",
-      "static/chunks/main-app-0cd6e5ac716c8aab.js",
-      "static/chunks/app/al-maya/page-309efabd5253151c.js"
-    ],
     "/al-jannat/page": [
       "static/chunks/webpack-de8c45a8221cb9dc.js",
       "static/chunks/4bd1b696-52a6696c08e3276c.js",
@@ -36,6 +29,13 @@
       "static/chunks/main-app-0cd6e5ac716c8aab.js",
       "static/chunks/766-faa15deb79ae8995.js",
       "static/chunks/app/al-jannat/page-44ad09306a0d2f38.js"
+    ],
+    "/al-maya/page": [
+      "static/chunks/webpack-de8c45a8221cb9dc.js",
+      "static/chunks/4bd1b696-52a6696c08e3276c.js",
+      "static/chunks/684-4fbcbb3a16540564.js",
+      "static/chunks/main-app-0cd6e5ac716c8aab.js",
+      "static/chunks/app/al-maya/page-309efabd5253151c.js"
     ]
   }
 }
