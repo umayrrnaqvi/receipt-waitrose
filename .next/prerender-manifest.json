@@ -1,7 +1,7 @@
 {
   "version": 4,
   "routes": {
-    "/al-maya": {
+    "/al-jannat": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -14,8 +14,8 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/al-maya",
-      "dataRoute": "/al-maya.rsc",
+      "srcRoute": "/al-jannat",
+      "dataRoute": "/al-jannat.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -49,7 +49,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/al-jannat": {
+    "/al-maya": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -62,8 +62,8 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/al-jannat",
-      "dataRoute": "/al-jannat.rsc",
+      "srcRoute": "/al-maya",
+      "dataRoute": "/al-maya.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -77,8 +77,8 @@
   "dynamicRoutes": {},
   "notFoundRoutes": [],
   "preview": {
-    "previewModeId": "7604271242e350ef8a3583c1695c86fe",
-    "previewModeSigningKey": "8859b99de77459205d8e09400badaaffe091f5fb383f317ae6a43cf82193ffe8",
-    "previewModeEncryptionKey": "6205ecf4738dfc9ec6fec8194f0e94e192bbc5a6ff77cb2b5a69d74e18aace91"
+    "previewModeId": "3e5121ba274b3169f5044e41f45a4a04",
+    "previewModeSigningKey": "9e8853f5304814ef46121a29ceb48542718866fd7ce74418593c79dbc3245203",
+    "previewModeEncryptionKey": "80b67b3906d2c87ca6f2c5d77f922b06f97c76aa281dbc62ebd9130e0a5831f2"
   }
 }

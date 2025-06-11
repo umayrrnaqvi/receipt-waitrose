@@ -1,4 +1,4 @@
-// File: C:\Receipt App\waitrose\src\app\al-maya\page.jsx
+// File: C:\Receipt App\receipt-waitrose\src\app\al-maya\page.jsx
 import * as entry from '../../../../src/app/al-maya/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

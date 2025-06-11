@@ -14,7 +14,7 @@
     "cleanDistDir": true,
     "assetPrefix": "",
     "cacheMaxMemorySize": 52428800,
-    "configOrigin": "..\\next.config.js",
+    "configOrigin": "default",
     "useFileSystemPublicRoutes": true,
     "generateEtags": true,
     "pageExtensions": [
@@ -96,7 +96,7 @@
         "transform": "lodash/{{member}}"
       }
     },
-    "outputFileTracingRoot": "C:\\Receipt App\\waitrose",
+    "outputFileTracingRoot": "C:\\Receipt App\\receipt-waitrose",
     "experimental": {
       "nodeMiddleware": false,
       "cacheLife": {
@@ -277,12 +277,12 @@
     },
     "htmlLimitedBots": "Mediapartners-Google|Slurp|DuckDuckBot|baiduspider|yandex|sogou|bitlybot|tumblr|vkShare|quora link preview|redditbot|ia_archiver|Bingbot|BingPreview|applebot|facebookexternalhit|facebookcatalog|Twitterbot|LinkedInBot|Slackbot|Discordbot|WhatsApp|SkypeUriPreview|Yeti",
     "bundlePagesRouterDependencies": false,
-    "configFileName": "next.config.js",
     "turbopack": {
-      "root": "C:\\Receipt App\\waitrose"
-    }
+      "root": "C:\\Receipt App\\receipt-waitrose"
+    },
+    "configFileName": "next.config.js"
   },
-  "appDir": "C:\\Receipt App\\waitrose",
+  "appDir": "C:\\Receipt App\\receipt-waitrose",
   "relativeAppDir": "",
   "files": [
     ".next\\routes-manifest.json",
