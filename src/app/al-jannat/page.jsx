@@ -240,7 +240,7 @@ const items = [
     { name: "Fresh Grape Seed Oil", price: 770 },
 ];
 
-
+export const dynamic = 'force-dynamic';
 const AlJannatPage = () => {
 
     const [count, setCount] = useState("");
