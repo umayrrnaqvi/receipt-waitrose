@@ -25,6 +25,30 @@
         "x-next-revalidate-tag-token"
       ]
     },
+    "/al-jannat": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "Next-Action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/al-jannat",
+      "dataRoute": "/al-jannat.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
     "/": {
       "experimentalBypassFor": [
         {
@@ -53,8 +77,8 @@
   "dynamicRoutes": {},
   "notFoundRoutes": [],
   "preview": {
-    "previewModeId": "b3dea15bece81b0859c1fbbe3148b126",
-    "previewModeSigningKey": "35d18d7b49f54e4291c145fa5312475d84e7883bc1106d822a21181c7e3c6a3d",
-    "previewModeEncryptionKey": "adcef61014b59124e356a1f9f7823cadb455c99444be86d71ef3f583946f6d9b"
+    "previewModeId": "e867e88be32284361ff3feb7b9b01ff9",
+    "previewModeSigningKey": "4baec78aa02e8e2c7a8ea8acd693cb5daeab8ad37e94a8b6474f33ea8badcc86",
+    "previewModeEncryptionKey": "dbbc50f5cd37a9465b754f83f33aab19426a7530e2eaf676ee7f297ba72052ed"
   }
 }

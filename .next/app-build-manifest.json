@@ -3,29 +3,37 @@
     "/_not-found/page": [
       "static/chunks/webpack-de8c45a8221cb9dc.js",
       "static/chunks/4bd1b696-52a6696c08e3276c.js",
-      "static/chunks/684-fa00602c1cb6ab8e.js",
+      "static/chunks/684-4fbcbb3a16540564.js",
       "static/chunks/main-app-602c5a217782cbf4.js",
       "static/chunks/app/_not-found/page-5bfe245ad955586d.js"
     ],
     "/layout": [
       "static/chunks/webpack-de8c45a8221cb9dc.js",
       "static/chunks/4bd1b696-52a6696c08e3276c.js",
-      "static/chunks/684-fa00602c1cb6ab8e.js",
+      "static/chunks/684-4fbcbb3a16540564.js",
       "static/chunks/main-app-602c5a217782cbf4.js",
-      "static/css/5da09a9b3ec0c1b7.css",
+      "static/css/946e8ac13542739d.css",
       "static/chunks/app/layout-d45a354ec1af270b.js"
+    ],
+    "/al-jannat/page": [
+      "static/chunks/webpack-de8c45a8221cb9dc.js",
+      "static/chunks/4bd1b696-52a6696c08e3276c.js",
+      "static/chunks/684-4fbcbb3a16540564.js",
+      "static/chunks/main-app-602c5a217782cbf4.js",
+      "static/chunks/766-faa15deb79ae8995.js",
+      "static/chunks/app/al-jannat/page-33d66b32463ac5d4.js"
     ],
     "/page": [
       "static/chunks/webpack-de8c45a8221cb9dc.js",
       "static/chunks/4bd1b696-52a6696c08e3276c.js",
-      "static/chunks/684-fa00602c1cb6ab8e.js",
+      "static/chunks/684-4fbcbb3a16540564.js",
       "static/chunks/main-app-602c5a217782cbf4.js",
       "static/chunks/app/page-35993de93b0744f9.js"
     ],
     "/al-maya/page": [
       "static/chunks/webpack-de8c45a8221cb9dc.js",
       "static/chunks/4bd1b696-52a6696c08e3276c.js",
-      "static/chunks/684-fa00602c1cb6ab8e.js",
+      "static/chunks/684-4fbcbb3a16540564.js",
       "static/chunks/main-app-602c5a217782cbf4.js",
       "static/chunks/app/al-maya/page-f5f08a8bcc04ee71.js"
     ]
