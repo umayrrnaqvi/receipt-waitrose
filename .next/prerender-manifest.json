@@ -25,30 +25,6 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/al-jannat": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "Next-Action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/al-jannat",
-      "dataRoute": "/al-jannat.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
     "/": {
       "experimentalBypassFor": [
         {
@@ -72,13 +48,37 @@
         "x-next-revalidated-tags",
         "x-next-revalidate-tag-token"
       ]
+    },
+    "/al-jannat": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "Next-Action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/al-jannat",
+      "dataRoute": "/al-jannat.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
     }
   },
   "dynamicRoutes": {},
   "notFoundRoutes": [],
   "preview": {
-    "previewModeId": "e867e88be32284361ff3feb7b9b01ff9",
-    "previewModeSigningKey": "4baec78aa02e8e2c7a8ea8acd693cb5daeab8ad37e94a8b6474f33ea8badcc86",
-    "previewModeEncryptionKey": "dbbc50f5cd37a9465b754f83f33aab19426a7530e2eaf676ee7f297ba72052ed"
+    "previewModeId": "7604271242e350ef8a3583c1695c86fe",
+    "previewModeSigningKey": "8859b99de77459205d8e09400badaaffe091f5fb383f317ae6a43cf82193ffe8",
+    "previewModeEncryptionKey": "6205ecf4738dfc9ec6fec8194f0e94e192bbc5a6ff77cb2b5a69d74e18aace91"
   }
 }
