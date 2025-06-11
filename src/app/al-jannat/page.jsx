@@ -240,7 +240,7 @@ const items = [
 ];
 
 
-const page = () => {
+const Page = () => {
 
     const [count, setCount] = useState("");
     const [selectedItems, setSelectedItems] = useState([]);
@@ -423,4 +423,4 @@ const page = () => {
     );
 }
 
-export default page;
+export default Page;
