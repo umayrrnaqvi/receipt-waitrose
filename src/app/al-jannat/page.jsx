@@ -4,7 +4,6 @@ import { useState } from "react";
 import Image from 'next/image';
 // import RandomItemsTable from "../components/RandomItemsTable";
 
-
 const items = [
     { name: "Fresh Tomatoes", price: 120 },
     { name: "Fresh Potatoes", price: 90 },
