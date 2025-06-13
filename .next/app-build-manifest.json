@@ -1,41 +1,25 @@
 {
   "pages": {
-    "/_not-found/page": [
-      "static/chunks/webpack-de8c45a8221cb9dc.js",
-      "static/chunks/4bd1b696-52a6696c08e3276c.js",
-      "static/chunks/684-4fbcbb3a16540564.js",
-      "static/chunks/main-app-0cd6e5ac716c8aab.js",
-      "static/chunks/app/_not-found/page-5bfe245ad955586d.js"
-    ],
     "/layout": [
-      "static/chunks/webpack-de8c45a8221cb9dc.js",
-      "static/chunks/4bd1b696-52a6696c08e3276c.js",
-      "static/chunks/684-4fbcbb3a16540564.js",
-      "static/chunks/main-app-0cd6e5ac716c8aab.js",
-      "static/css/214b7a73268d5d1a.css",
-      "static/chunks/app/layout-5e69b49a7c441d73.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/layout.css",
+      "static/chunks/app/layout.js"
     ],
     "/page": [
-      "static/chunks/webpack-de8c45a8221cb9dc.js",
-      "static/chunks/4bd1b696-52a6696c08e3276c.js",
-      "static/chunks/684-4fbcbb3a16540564.js",
-      "static/chunks/main-app-0cd6e5ac716c8aab.js",
-      "static/chunks/app/page-0e11d9a7e8957d80.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/page.js"
     ],
     "/al-jannat/page": [
-      "static/chunks/webpack-de8c45a8221cb9dc.js",
-      "static/chunks/4bd1b696-52a6696c08e3276c.js",
-      "static/chunks/684-4fbcbb3a16540564.js",
-      "static/chunks/main-app-0cd6e5ac716c8aab.js",
-      "static/chunks/766-faa15deb79ae8995.js",
-      "static/chunks/app/al-jannat/page-44ad09306a0d2f38.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/al-jannat/page.js"
     ],
     "/al-maya/page": [
-      "static/chunks/webpack-de8c45a8221cb9dc.js",
-      "static/chunks/4bd1b696-52a6696c08e3276c.js",
-      "static/chunks/684-4fbcbb3a16540564.js",
-      "static/chunks/main-app-0cd6e5ac716c8aab.js",
-      "static/chunks/app/al-maya/page-309efabd5253151c.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/al-maya/page.js"
     ]
   }
 }
