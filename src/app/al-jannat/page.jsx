@@ -1,5 +1,4 @@
 'use client';
-import React from "react";
 import { useState } from "react";
 import Image from 'next/image';
 // import RandomItemsTable from "../components/RandomItemsTable";
@@ -253,7 +252,7 @@ const Page = () => {
 
 
     return (
-        <div className="min-h-screen bg-white p-6 text-black font-mono">
+        <div className="min-h-screen bg-white  text-black font-mono">
             <h1 className="text-3xl font-bold text-center mb-8 no-print">
                 AL-JANNAT Receipt Generator
             </h1>
@@ -297,7 +296,7 @@ const Page = () => {
             {/* Receipt Section */}
             <div
                 id="receipt"
-                className="receipt-container max-w-sm mx-auto bg-white border border-black p-4 text-sm print:w-[350px]"
+                className="receipt-container max-w-sm mx-auto bg-white border border-black p-4 text-sm print:w-[250px]"
             >
                 <div className="w-[90%] flex justify-center">
                     <Image
