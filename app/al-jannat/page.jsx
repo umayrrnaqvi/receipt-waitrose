@@ -1,7 +1,6 @@
 'use client';
 import { useState } from "react";
 import Image from 'next/image';
-// import RandomItemsTable from "../components/RandomItemsTable";
 
 const items = [
   { name: "Fresh Apple", price: 250 },
@@ -209,59 +208,59 @@ const items = [
 ];
 
 
-
 const Page = () => {
 
-    const [count, setCount] = useState("");
-    const [selectedItems, setSelectedItems] = useState([]);
-    const [orderId, setOrderId] = useState("");
-    const [date, setDate] = useState("");
-    const [time, setTime] = useState("");
+    const [count, setCount] = useState(""); // User input for count
+    const [selectedItems, setSelectedItems] = useState([]); // List of selected items
+    const [orderId, setOrderId] = useState(""); // Generate order ID
+    const [date, setDate] = useState(""); // Date input
+    const [time, setTime] = useState(""); // Time input
+    const [selectedCategory, setSelectedCategory] = useState("Fruits"); // Default category: Fruits
 
+    // Function to calculate total
+    const calculateTotal = () =>
+        selectedItems.reduce((total, item) => total + item.quantity * item.price, 0);
 
+    // Format the date
     const formatDate = (inputDate) => {
         if (!inputDate) return "N/A";
         const [year, month, day] = inputDate.split("-");
         return `${day}/${month}/${year}`;
     };
 
-       const handleAddItem = () => {
-        const number = parseInt(count);
-        if (!number || number <= 0 || number > selectedItems.length) {
-            setSelectedItems([]); // Clear selected items if invalid count
-            return;
-        }
+    const handleAddItem = () => {
+    const number = parseInt(count);
+    if (!number || number <= 0) {
+      setSelectedItems([]); // Clear selected items if invalid count
+      return;
+    }
 
-        const shuffled = [...items].sort(() => 0.5 - Math.random());
-        const selected = shuffled.slice(0, number).map(item => ({
-            ...items,
-            quantity: 1
-        }));
+    // Shuffle and pick the desired number from the items list
+    const shuffled = [...items].sort(() => 0.5 - Math.random());
+    const selected = shuffled.slice(0, number).map(item => ({
+      ...item,
+      quantity: 1 // Set quantity to 1 for each item
+    }));
 
-        setSelectedItems(selected);
-        setOrderId(generateOrderId());
-    };
+    // Update the selected items list and generate an order ID
+    setSelectedItems(selected);
+    setOrderId(generateOrderId());
+  };
 
-    const calculateTotal = () =>
-        selectedItems.reduce((total, item) => total + item.quantity * item.price, 0);
+    // Generate order ID based on current time
+    const generateOrderId = () => Date.now().toString();
 
     const total = calculateTotal();
     const totalItemsCount = selectedItems.reduce((acc, item) => acc + item.quantity, 0);
 
-    const generateOrderId = () => Date.now().toString();
-
-
     return (
-        <div className="min-h-screen bg-white  text-black font-mono">
+        <div className="min-h-screen bg-white text-black font-mono">
             <h1 className="text-3xl font-bold text-center mb-8 no-print">
                 AL-JANNAT Receipt Generator
             </h1>
 
-
-
             {/* Item Input Section */}
             <div className="flex flex-wrap gap-4 mb-6 justify-center no-print">
-
                 <input
                     type="number"
                     value={count}
@@ -284,7 +283,6 @@ const Page = () => {
                     className="border border-gray-300 p-2 rounded"
                 />
 
-
                 <button
                     onClick={handleAddItem}
                     className="bg-black text-white px-4 py-2 rounded hover:bg-gray-800"
@@ -294,10 +292,7 @@ const Page = () => {
             </div>
 
             {/* Receipt Section */}
-            <div
-                id="receipt"
-                className="receipt-container max-w-sm mx-auto bg-white border border-black p-4 text-sm print:w-[250px]"
-            >
+            <div id="receipt" className="receipt-container max-w-sm mx-auto bg-white border border-black p-4 text-sm print:w-[250px]">
                 <div className="w-[90%] flex justify-center">
                     <Image
                         src='/trolly.png'
@@ -306,6 +301,7 @@ const Page = () => {
                         height={50}
                         priority />
                 </div>
+
                 <div className="text-center mb-4 leading-tight">
                     <h2 className="text-[50px] font-sans font-bold tracking-wide text-center">Al Jannat Green Mart</h2>
                     <p className="text-[18px] font-bold font-mono mt-5">DHA Phase 8 at 13/L ,air avenue  Lahore, Pakistan </p>
@@ -313,7 +309,6 @@ const Page = () => {
                     <div className="text-left text-[15px] font-bold font-mono mt-4 border-b border-dotted">
                         <p>Date: {formatDate(date)}</p>
                         <p>Time: {time || "N/A"}</p>
-
                     </div>
                 </div>
 
@@ -335,27 +330,26 @@ const Page = () => {
                     </div>
                 )}
 
-
                 <div className="pt-2 mt-4 text-sm font-mono border-t border-dotted pb-5">
                     {/* Total */}
                     <div className="flex text-[15px] justify-end font-bold tracking-widest">
-                        <span className="">Total:</span>
+                        <span>Total:</span>
                         <span>RS {total.toFixed(2)}</span>
                     </div>
                     <div className="flex text-[15px] justify-end font-bold tracking-widest">
-                        <span className="">Cash:</span>
+                        <span>Cash:</span>
                         <span>RS {total.toFixed(2)}</span>
                     </div>
                 </div>
 
-                <div className=" flex gap-5 font-bold text-[16px] font-mono tracking-widest border-b border-dotted pb-2">
-                    <span> Items Sold:</span>
+                <div className="flex gap-5 font-bold text-[16px] font-mono tracking-widest border-b border-dotted pb-2">
+                    <span>Items Sold:</span>
                     <span>{totalItemsCount}</span>
                 </div>
 
-                <div className=" flex justify-between font-bold font-mono tracking-widest border-b border-dotted pt-2 pb-2">
+                <div className="flex justify-between font-bold font-mono tracking-widest border-b border-dotted pt-2 pb-2">
                     <div>
-                        <span> Payment Method: Cash</span>
+                        <span>Payment Method: Cash</span>
                     </div>
                     <div className="mt-5">
                         <span className="text-[14px]">Amount:</span>
@@ -372,7 +366,8 @@ const Page = () => {
                 </div>
                 <div>
                     <p className="text-[15px] font-bold text-center mt-2">
-                        Please keep this receipt for your records.</p>
+                        Please keep this receipt for your records.
+                    </p>
                 </div>
             </div>
 
@@ -390,6 +385,6 @@ const Page = () => {
             </div>
         </div>
     );
-}
+};
 
 export default Page;
