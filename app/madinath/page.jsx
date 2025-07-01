@@ -117,7 +117,7 @@ export default function ReceiptPage() {
       {/* Receipt */}
       <div className="w-[80mm] mx-auto p-2 border border-gray-300">
         <div className="text-center mb-3">
-          <div className="text-xl font-bold leading-tight">Madinath <br /> Market</div>
+          <div className="text-3xl font-bold leading-tight">Madinath <br /> Market</div>
           <p className="mt-1 leading-snug">
             JARS AL MADINA SUPERMARKET<br />
             AL QUOZ<br />
@@ -131,7 +131,7 @@ export default function ReceiptPage() {
           <div className="font-bold">TAX INVOICE</div>
         </div>
 
-        <div className="space-y-[3px] my-2">
+        <div className="space-y-[3px] font-bold my-2">
           {[
             ['Invoice No', invoiceNo, 'رقم الفاتورة'],
             ['Date', new Date().toLocaleDateString(), 'تاريخ'],
@@ -176,7 +176,7 @@ export default function ReceiptPage() {
             <div className="text-[13px] font-semibold mt-2">
               {item.itemName}
             </div>
-            <div className="grid grid-cols-4 text-center text-[11px]">
+            <div className="grid grid-cols-4 font-semibold text-center text-[11px]">
               <span>{item.barcode}</span>
               <span>{item.quantity}</span>
               <span>{item.price.toFixed(2)}</span>

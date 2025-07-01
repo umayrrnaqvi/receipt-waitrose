@@ -440,7 +440,7 @@ const AlMayaPage = () => {
             </div>
 
 
-            {/* Print Button */}
+          `  {/* Print Button */}
             <div className="mt-6 flex justify-center no-print">
                 <button
                     onClick={() => {
@@ -451,7 +451,7 @@ const AlMayaPage = () => {
                 >
                     Print Receipt
                 </button>
-            </div>
+            </div>`
         </div>
     );
 }
