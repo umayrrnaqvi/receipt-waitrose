@@ -61,6 +61,14 @@ export default function ReceiptPage() {
     setPrice('');
   };
 
+     function formatDate(date) {
+      const day = String(date.getDate()).padStart(2, '0');
+      const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are 0-based
+      const year = date.getFullYear();
+      return `${day}/${month}/${year}`;
+    }
+
+
   const total = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const vatRate = 0.05;
   const vatAmount = total * vatRate;
@@ -134,7 +142,7 @@ export default function ReceiptPage() {
         <div className="space-y-[3px] my-2">
           {[
             ['Invoice No', invoiceNo, 'رقم الفاتورة'],
-            ['Date', new Date().toLocaleDateString(), 'تاريخ'],
+            ['Date', formatDate(new Date()), 'تاريخ'],
             ['Time', new Date().toLocaleTimeString(), 'الوقت'],
             ['Terminal', '3', 'نقطة البيع'],
             ['Cashier', 'JARS-CASHIER3', 'الكاشير'],
