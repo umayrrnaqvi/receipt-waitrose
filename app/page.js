@@ -3,56 +3,56 @@ import { useState } from "react";
 
 const items = {
     Fruits: [
-        { name: "Apple", arabic: "تفاحة" , price: Math.random() * (3 - 1) + 1 },
-        { name: "Banana", arabic: "موز" , price: Math.random() * (3 - 1) + 1 },
+        { name: "Apple", arabic: "تفاحة", price: Math.random() * (3 - 1) + 1 },
+        { name: "Banana", arabic: "موز", price: Math.random() * (3 - 1) + 1 },
         { name: "Orange", arabic: "برتقال", price: Math.random() * (3 - 1) + 1 },
-        { name: "Grapes", arabic: "عنب" , price: Math.random() * (3 - 1) + 1},
-        { name: "Mango", arabic: "مانجو" , price: Math.random() * (3 - 1) + 1},
-        { name: "Pineapple", arabic: "أناناس" , price: Math.random() * (3 - 1) + 1},
-        { name: "Strawberry", arabic: "فراولة" , price: Math.random() * (3 - 1) + 1},
-        { name: "Watermelon", arabic: "بطيخ" , price: Math.random() * (3 - 1) + 1},
-        { name: "Peach", arabic: "خوخ" , price: Math.random() * (3 - 1) + 1},
-        { name: "Pear", arabic: "كمثرى" , price: Math.random() * (3 - 1) + 1},
-        { name: "Kiwi", arabic: "كيوي" , price: Math.random() * (3 - 1) + 1},
-        { name: "Pomegranate", arabic: "رمان" , price: Math.random() * (3 - 1) + 1},
-        { name: "Lemon", arabic: "ليمون" , price: Math.random() * (3 - 1) + 1},
-        { name: "Lime", arabic: "ليم" , price: Math.random() * (3 - 1) + 1},
-        { name: "Cherry", arabic: "كرز" , price: Math.random() * (3 - 1) + 1},
+        { name: "Grapes", arabic: "عنب", price: Math.random() * (3 - 1) + 1 },
+        { name: "Mango", arabic: "مانجو", price: Math.random() * (3 - 1) + 1 },
+        { name: "Pineapple", arabic: "أناناس", price: Math.random() * (3 - 1) + 1 },
+        { name: "Strawberry", arabic: "فراولة", price: Math.random() * (3 - 1) + 1 },
+        { name: "Watermelon", arabic: "بطيخ", price: Math.random() * (3 - 1) + 1 },
+        { name: "Peach", arabic: "خوخ", price: Math.random() * (3 - 1) + 1 },
+        { name: "Pear", arabic: "كمثرى", price: Math.random() * (3 - 1) + 1 },
+        { name: "Kiwi", arabic: "كيوي", price: Math.random() * (3 - 1) + 1 },
+        { name: "Pomegranate", arabic: "رمان", price: Math.random() * (3 - 1) + 1 },
+        { name: "Lemon", arabic: "ليمون", price: Math.random() * (3 - 1) + 1 },
+        { name: "Lime", arabic: "ليم", price: Math.random() * (3 - 1) + 1 },
+        { name: "Cherry", arabic: "كرز", price: Math.random() * (3 - 1) + 1 },
         { name: "Blueberry", arabic: "توت أزرق", price: Math.random() * (3 - 1) + 1 },
-        { name: "Blackberry", arabic: "توت أسود" , price: Math.random() * (3 - 1) + 1},
-        { name: "Raspberry", arabic: "توت العليق" , price: Math.random() * (3 - 1) + 1},
+        { name: "Blackberry", arabic: "توت أسود", price: Math.random() * (3 - 1) + 1 },
+        { name: "Raspberry", arabic: "توت العليق", price: Math.random() * (3 - 1) + 1 },
         { name: "Fig", arabic: "تين", price: Math.random() * (3 - 1) + 1 },
-        { name: "Guava", arabic: "جوافة" , price: Math.random() * (3 - 1) + 1},
+        { name: "Guava", arabic: "جوافة", price: Math.random() * (3 - 1) + 1 },
         { name: "Papaya", arabic: "بابايا", price: Math.random() * (3 - 1) + 1 },
         { name: "Coconut", arabic: "جوز الهند", price: Math.random() * (3 - 1) + 1 },
         { name: "Avocado", arabic: "أفوكادو", price: Math.random() * (3 - 1) + 1 },
-        { name: "Plum", arabic: "برقوق" , price: Math.random() * (3 - 1) + 1},
-        { name: "Apricot", arabic: "مشمش" , price: Math.random() * (3 - 1) + 1},
-        { name: "Melon", arabic: "شمام" , price: Math.random() * (3 - 1) + 1},
-        { name: "Dates", arabic: "تمر" , price: Math.random() * (3 - 1) + 1},
+        { name: "Plum", arabic: "برقوق", price: Math.random() * (3 - 1) + 1 },
+        { name: "Apricot", arabic: "مشمش", price: Math.random() * (3 - 1) + 1 },
+        { name: "Melon", arabic: "شمام", price: Math.random() * (3 - 1) + 1 },
+        { name: "Dates", arabic: "تمر", price: Math.random() * (3 - 1) + 1 },
         { name: "Passion Fruit", arabic: "فاكهة العاطفة", price: Math.random() * (3 - 1) + 1 },
-        { name: "Dragon Fruit", arabic: "فاكهة التنين", price: Math.random() * (3 - 1) + 1},
-        { name: "Lychee", arabic: "ليتشي" , price: Math.random() * (3 - 1) + 1},
+        { name: "Dragon Fruit", arabic: "فاكهة التنين", price: Math.random() * (3 - 1) + 1 },
+        { name: "Lychee", arabic: "ليتشي", price: Math.random() * (3 - 1) + 1 },
         { name: "Cranberry", arabic: "توت بري", price: Math.random() * (3 - 1) + 1 },
         { name: "Jackfruit", arabic: "كاكايا", price: Math.random() * (3 - 1) + 1 },
-        { name: "Tangerine", arabic: "يوسفي" , price: Math.random() * (3 - 1) + 1},
-        { name: "Nectarine", arabic: "نكتارين" , price: Math.random() * (3 - 1) + 1},
+        { name: "Tangerine", arabic: "يوسفي", price: Math.random() * (3 - 1) + 1 },
+        { name: "Nectarine", arabic: "نكتارين", price: Math.random() * (3 - 1) + 1 },
         { name: "Mulberry", arabic: "توت", price: Math.random() * (3 - 1) + 1 },
         { name: "Gooseberry", arabic: "عنب الثعلب", price: Math.random() * (3 - 1) + 1 },
-        { name: "Starfruit", arabic: "فاكهة النجمة" , price: Math.random() * (3 - 1) + 1},
+        { name: "Starfruit", arabic: "فاكهة النجمة", price: Math.random() * (3 - 1) + 1 },
         { name: "Persimmon", arabic: "كاكي", price: Math.random() * (3 - 1) + 1 },
-        { name: "Cantaloupe", arabic: "شمام كوز العسل" , price: Math.random() * (3 - 1) + 1},
-        { name: "Breadfruit", arabic: "فاكهة الخبز" , price: Math.random() * (3 - 1) + 1},
-        { name: "Rambutan", arabic: "رامبوتان" , price: Math.random() * (3 - 1) + 1},
-        { name: "Sapodilla", arabic: "سابوديلا" , price: Math.random() * (3 - 1) + 1},
+        { name: "Cantaloupe", arabic: "شمام كوز العسل", price: Math.random() * (3 - 1) + 1 },
+        { name: "Breadfruit", arabic: "فاكهة الخبز", price: Math.random() * (3 - 1) + 1 },
+        { name: "Rambutan", arabic: "رامبوتان", price: Math.random() * (3 - 1) + 1 },
+        { name: "Sapodilla", arabic: "سابوديلا", price: Math.random() * (3 - 1) + 1 },
         { name: "Longan", arabic: "لونجان", price: Math.random() * (3 - 1) + 1 },
-        { name: "Currant", arabic: "زبيب" , price: Math.random() * (3 - 1) + 1},
-        { name: "Olive", arabic: "زيتون" , price: Math.random() * (3 - 1) + 1},
+        { name: "Currant", arabic: "زبيب", price: Math.random() * (3 - 1) + 1 },
+        { name: "Olive", arabic: "زيتون", price: Math.random() * (3 - 1) + 1 },
         { name: "Soursop", arabic: "قشطة", price: Math.random() * (3 - 1) + 1 },
-        { name: "Quince", arabic: "سفرجل" , price: Math.random() * (3 - 1) + 1},
-        { name: "Tamarind", arabic: "تمر هندي" , price: Math.random() * (3 - 1) + 1},
-        { name: "Ugli Fruit", arabic: "فاكهة القبيحة" , price: Math.random() * (3 - 1) + 1},
-        { name: "Medlar", arabic: "ميدلار" , price: Math.random() * (3 - 1) + 1}
+        { name: "Quince", arabic: "سفرجل", price: Math.random() * (3 - 1) + 1 },
+        { name: "Tamarind", arabic: "تمر هندي", price: Math.random() * (3 - 1) + 1 },
+        { name: "Ugli Fruit", arabic: "فاكهة القبيحة", price: Math.random() * (3 - 1) + 1 },
+        { name: "Medlar", arabic: "ميدلار", price: Math.random() * (3 - 1) + 1 }
     ],
     Vegetables: [
         { name: "Tomato", arabic: "طماطم", price: Math.random() * (3 - 1) + 1 },
@@ -131,7 +131,7 @@ const items = {
     ]
 };
 
-  const Page = () => {
+const Page = () => {
     const [count, setCount] = useState("");
     const [selectedItems, setSelectedItems] = useState([]);
     const [orderId, setOrderId] = useState("");
@@ -153,25 +153,28 @@ const items = {
     const handleAddItem = () => {
         const number = parseInt(count);
         if (!number || number <= 0) {
-            setSelectedItems([]); // Clear selected items if invalid count
+            setSelectedItems([]);
             return;
         }
 
-        // Access the selected category (either 'Fruits' or 'Vegetables')
         const selectedCategoryItems = items[selectedCategory];
-
-        // Shuffle and select the items
         const shuffled = [...selectedCategoryItems].sort(() => 0.5 - Math.random());
         const selected = shuffled.slice(0, number).map(item => ({
             ...item,
-            quantity: 1 // Set quantity to 1 for each item
+            quantity: 1
         }));
 
         setSelectedItems(selected);
-        setOrderId(generateOrderId());
+        setOrderId(generateOrderId()); // ✅ ONLY HERE
     };
 
-    const generateOrderId = () => Date.now().toString();
+    const generateOrderId = () => {
+        const base = 1752565922316; // 13-digit base
+        const last = parseInt(localStorage.getItem("lastOrderId")) || base;
+        const next = last + 1;
+        localStorage.setItem("lastOrderId", next.toString());
+        return next.toString();
+    };
 
     const vatRate = 0.05; // 5%
     const total = calculateTotal();
@@ -254,7 +257,7 @@ const items = {
                         </div>
                     </div>
 
-                    <div className="flex justify-between mt-2 border-b border-dotted py-2">
+                    <div className="flex text-[15px] font-bold justify-between mt-2 border-b border-dotted py-2">
                         <p>Date: {formatDate(date)}</p>
                         <p>Time: {time || "N/A"}</p>
                     </div>
@@ -358,9 +361,9 @@ const items = {
             <div className="mt-6 flex justify-center no-print">
                 <button
                     onClick={() => {
-                        setOrderId(generateOrderId());
-                        setTimeout(() => window.print(), 100);
+                        window.print(); // ✅ do not regenerate ID
                     }}
+
                     className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700"
                 >
                     Print Receipt
