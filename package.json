@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.1.10",
+    "jsbarcode": "^3.12.1",
     "next": "13.5.11",
     "react": "^18",
     "react-dom": "^18",
