@@ -94,6 +94,8 @@ export default function ReceiptLayout() {
   const [vatAmount, setVatAmount] = useState("0.00");
   const [receiptNumber, setReceiptNumber] = useState("");
   const [barcodeNumber, setBarcodeNumber] = useState("662270110028263025070712956");
+  const [customerId, setCustomerId] = useState("");
+
 
 
   const getAllItems = () => {
@@ -107,6 +109,16 @@ export default function ReceiptLayout() {
     localStorage.setItem("lastReceipt", next);
     setReceiptNumber(next.toString());
   };
+
+  const generateCustomerId = () => {
+    const randomSuffix = Math.floor(1000 + Math.random() * 9000); // 4-digit
+    const newCustomerId = "********" + randomSuffix;
+    localStorage.setItem("customerId", newCustomerId);
+    setCustomerId(newCustomerId);
+  };
+
+
+
 
 
   const generateBarcodeNumber = () => {
@@ -153,6 +165,9 @@ export default function ReceiptLayout() {
 
     setItems(selectedItems);
     updateDateTime();
+    setIsClient(true);
+    generateCustomerId();
+
   };
 
 
@@ -184,7 +199,7 @@ export default function ReceiptLayout() {
       {/* 🎯 Inputs */}
       {isClient && (
         <div className="flex flex-wrap gap-3 items-center justify-center mb-5 no-print text-xs">
-        
+
           <input
             type="number"
             min="1"
@@ -235,7 +250,7 @@ export default function ReceiptLayout() {
             <span>You have earned {earnedPoints} Happiness Points</span>
           </div>
           <div className="text-[14px] pl-3">
-            <span>Customer:  ********4043</span>
+            <span>Customer {customerId}</span>
           </div>
 
           <div className="mt-3 text-[13px]">
@@ -368,6 +383,7 @@ export default function ReceiptLayout() {
             onClick={() => {
               generateReceiptNumber(); // generate new number
               generateBarcodeNumber();  // update barcode number
+              generateCustomerId(); // ✅ Generate new customer ID
               setTimeout(() => window.print(), 100); // slight delay to ensure it shows
             }}
           >
