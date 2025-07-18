@@ -8,7 +8,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        arabic: ['Tajawal', 'Arial', 'sans-serif']
+        arabic: ['Tajawal', 'Arial', 'sans-serif'],
+        receipt: ['"Courier New"', 'Courier', 'monospace'], // custom receipt font
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

@@ -40,13 +40,9 @@ const items = [
   { name: "Fresh Mulberry", price: 400 },
   { name: "Fresh Gooseberry", price: 300 },
   { name: "Fresh Currant", price: 650 },
-  { name: "Fresh Longan", price: 300 },
-  { name: "Fresh Rambutan", price: 400 },
   { name: "Fresh Sapodilla", price: 200 },
-  { name: "Fresh Jujube", price: 180 },
   { name: "Fresh Quince", price: 220 },
   { name: "Fresh Ugli Fruit", price: 500 },
-  { name: "Fresh Salak", price: 350 },
   { name: "Fresh Surinam Cherry", price: 550 },
   { name: "Fresh Loquat", price: 160 },
   { name: "Fresh Buddha’s Hand", price: 400 },
@@ -67,17 +63,11 @@ const items = [
   { name: "Fresh Huckleberry", price: 400 },
   { name: "Fresh Ice Apple", price: 70 },
   { name: "Fresh Jaboticaba", price: 450 },
-  { name: "Fresh Karonda", price: 250 },
-  { name: "Fresh Langsat", price: 500 },
-  { name: "Fresh Mabolo", price: 400 },
-  { name: "Fresh Noni", price: 450 },
   { name: "Fresh Olive", price: 400 },
   { name: "Fresh Olive Plum", price: 300 },
   { name: "Fresh Pawpaw", price: 200 },
   { name: "Fresh Red Banana", price: 200 },
   { name: "Fresh Rose Apple", price: 300 },
-  { name: "Fresh Santol", price: 500 },
-  { name: "Fresh Sea Buckthorn", price: 400 },
   { name: "Fresh Sugar Apple", price: 350 },
   { name: "Fresh Tamarillo", price: 400 },
   { name: "Fresh Wax Apple", price: 350 },
@@ -86,7 +76,6 @@ const items = [
   { name: "Fresh Yellow Plum", price: 250 },
   { name: "Fresh Ziziphus", price: 200 },
   { name: "Fresh Duku", price: 500 },
-  { name: "Fresh Horned Melon", price: 700 },
   { name: "Fresh Mangosteen", price: 800 },
   { name: "Fresh Miracle Fruit", price: 950 },
   { name: "Fresh Cloudberry", price: 1000 },
@@ -101,7 +90,6 @@ const items = [
   { name: "Fresh Jaman", price: 150 },
   { name: "Fresh Musk Melon", price: 120 },
   { name: "Fresh Golden Apple", price: 300 },
-  { name: "Fresh Desert Lime", price: 400 },
   { name: "Fresh Cape Gooseberry", price: 450 },
 
   // Vegetables start here
@@ -117,7 +105,6 @@ const items = [
   { name: "Fresh Broccoli", price: 250 },
   { name: "Fresh Bell Pepper", price: 300 },
   { name: "Fresh Green Chili", price: 180 },
-  { name: "Fresh Capsicum", price: 200 },
   { name: "Fresh Zucchini", price: 160 },
   { name: "Fresh Eggplant", price: 100 },
   { name: "Fresh Okra", price: 120 },
@@ -166,7 +153,6 @@ const items = [
   { name: "Fresh Tapioca", price: 140 },
   { name: "Fresh Lotus Root", price: 300 },
   { name: "Fresh Bamboo Shoots", price: 400 },
-  { name: "Fresh Scallions", price: 150 },
   { name: "Fresh Fennel", price: 250 },
   { name: "Fresh Sorrel", price: 180 },
   { name: "Fresh Purslane", price: 150 },
@@ -198,7 +184,6 @@ const items = [
   { name: "Fresh Pea Shoots", price: 300 },
   { name: "Fresh Fenugreek Leaves", price: 150 },
   { name: "Fresh Colocasia Leaves", price: 200 },
-  { name: "Fresh Tender Jackfruit", price: 180 },
   { name: "Fresh Cress", price: 250 },
   { name: "Fresh Snow Fungus", price: 400 },
   { name: "Fresh Mushrooms", price: 350 },
@@ -306,66 +291,70 @@ const Page = () => {
                     <h2 className="text-[50px] font-sans font-bold tracking-wide text-center">Al Jannat Green Mart</h2>
                     <p className="text-[18px] font-bold font-mono mt-5">DHA Phase 8 at 13/L ,air avenue  Lahore, Pakistan </p>
 
-                    <div className="text-left text-[15px] font-bold font-mono mt-4 border-b border-dotted">
+                    <div className="text-left text-[18px] font-bold font-mono mt-1 border-b-2 border-dashed">
                         <p>Date: {formatDate(date)}</p>
                         <p>Time: {time || "N/A"}</p>
                     </div>
                 </div>
 
                 <div>
-                    <p className="flex font-mono font-bold text-[18px] gap-2 pb-2 border-b border-dotted">
+                    <p className="flex font-mono font-bold text-[18px] gap-2 pb-2 border-b-2 border-dashed">
                         <span>RECEIPT:</span>
                         <span>{orderId}</span>
                     </p>
                 </div>
 
                 {selectedItems.length > 0 && (
-                    <div className="mt-6">
+                    <div className="mt-2">
                         {selectedItems.map((item, index) => (
-                            <div key={index} className="flex justify-between text-[16px] font-bold font-mono py-2">
+                            <div key={index} className="flex justify-between text-[18px] font-bold font-mono">
+                                <div>
                                 <span>{item.name}</span>
-                                <span className="text-right">Rs {item.price}</span>
+                                </div>
+                                <div>
+                                Rs {item.price}
+                                </div>
                             </div>
                         ))}
                     </div>
                 )}
 
-                <div className="pt-2 mt-4 text-sm font-mono border-t border-dotted pb-5">
+                <div className="pt-2 mt-4 text-sm font-mono border-t border-dashed pb-5">
                     {/* Total */}
-                    <div className="flex text-[15px] justify-end font-bold tracking-widest">
+                    <div className="flex text-[17px] justify-end font-bold tracking-widest">
                         <span>Total:</span>
                         <span>RS {total.toFixed(2)}</span>
                     </div>
-                    <div className="flex text-[15px] justify-end font-bold tracking-widest">
+                    <div className="flex text-[17px] justify-end font-bold tracking-widest">
                         <span>Cash:</span>
                         <span>RS {total.toFixed(2)}</span>
                     </div>
                 </div>
 
-                <div className="flex gap-5 font-bold text-[16px] font-mono tracking-widest border-b border-dotted pb-2">
+                <div className="flex gap-5 font-bold text-[17px] font-mono tracking-widest border-b-2 border-dashed pb-2">
                     <span>Items Sold:</span>
                     <span>{totalItemsCount}</span>
                 </div>
 
-                <div className="flex justify-between font-bold font-mono tracking-widest border-b border-dotted pt-2 pb-2">
+                <div className="flex justify-between text-md font-bold font-mono tracking-widest border-b-2 border-dashed pt-1 pb-2">
                     <div>
                         <span>Payment Method: Cash</span>
                     </div>
                     <div className="mt-5">
-                        <span className="text-[14px]">Amount:</span>
+                        <span className="text-[16px]">Amount:</span>
                         <span>RS {total.toFixed(2)}</span>
                     </div>
                 </div>
 
-                <div className="w-full mx-auto px-4 flex flex-col items-center mt-4 text-center text-xs border-b border-dotted">
-                    <p className="text-[16px] text-center font-bold mt-6 leading-tight">
+                <div className="w-full mx-auto px-4 flex flex-col items-center text-center text-lg border-b-2 border-dashed">
+                    <p className="text-[17px] text-center font-bold mt-6 leading-tight">
                         Thank you for shopping at <span className="font-semibold">Al Jannat Green Mart</span>!<br />
                         Your trusted destination for fresh fruits, vegetables, and daily groceries.<br />
                         We truly value your business and hope to see you again soon.<br /><br />
                     </p>
                 </div>
                 <div>
-                    <p className="text-[15px] font-bold text-center mt-2">
+                    <p className="text-[15px] font-bold text-center mt-1">
                         Please keep this receipt for your records.
                     </p>
                 </div>
