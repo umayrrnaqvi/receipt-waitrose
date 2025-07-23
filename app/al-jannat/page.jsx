@@ -3,193 +3,118 @@ import { useState } from "react";
 import Image from 'next/image';
 
 const items = [
-  { name: "Fresh Apple", price: 250 },
-  { name: "Fresh Banana", price: 150 },
-  { name: "Fresh Orange", price: 200 },
-  { name: "Fresh Mango", price: 300 },
-  { name: "Fresh Pineapple", price: 180 },
-  { name: "Fresh Grapes", price: 280 },
-  { name: "Fresh Watermelon", price: 50 },
-  { name: "Fresh Papaya", price: 120 },
-  { name: "Fresh Strawberry", price: 500 },
-  { name: "Fresh Blueberry", price: 300 },
-  { name: "Fresh Raspberry", price: 450 },
-  { name: "Fresh Blackberry", price: 400 },
-  { name: "Fresh Kiwi", price: 80 },
-  { name: "Fresh Guava", price: 100 },
-  { name: "Fresh Peach", price: 180 },
-  { name: "Fresh Pear", price: 220 },
-  { name: "Fresh Plum", price: 200 },
-  { name: "Fresh Apricot", price: 250 },
-  { name: "Fresh Cherry", price: 300 },
-  { name: "Fresh Coconut", price: 100 },
-  { name: "Fresh Lychee", price: 300 },
-  { name: "Fresh Passionfruit", price: 400 },
-  { name: "Fresh Dragonfruit", price: 300 },
-  { name: "Fresh Pomegranate", price: 350 },
-  { name: "Fresh Fig", price: 400 },
-  { name: "Fresh Starfruit", price: 450 },
-  { name: "Fresh Nectarine", price: 260 },
-  { name: "Fresh Clementine", price: 240 },
-  { name: "Fresh Tangerine", price: 230 },
-  { name: "Fresh Cantaloupe", price: 100 },
-  { name: "Fresh Honeydew", price: 150 },
-  { name: "Fresh Persimmon", price: 350 },
-  { name: "Fresh Jackfruit", price: 180 },
-  { name: "Fresh Durian", price: 1200 },
-  { name: "Fresh Mulberry", price: 400 },
-  { name: "Fresh Gooseberry", price: 300 },
-  { name: "Fresh Currant", price: 650 },
-  { name: "Fresh Sapodilla", price: 200 },
-  { name: "Fresh Quince", price: 220 },
-  { name: "Fresh Ugli Fruit", price: 500 },
-  { name: "Fresh Surinam Cherry", price: 550 },
-  { name: "Fresh Loquat", price: 160 },
-  { name: "Fresh Buddha’s Hand", price: 400 },
-  { name: "Fresh Medlar", price: 300 },
-  { name: "Fresh Soursop", price: 800 },
-  { name: "Fresh Nance", price: 400 },
-  { name: "Fresh Ackee", price: 300 },
-  { name: "Fresh Bael", price: 120 },
-  { name: "Fresh Indian Fig", price: 200 },
-  { name: "Fresh Ambarella", price: 300 },
-  { name: "Fresh Barberry", price: 450 },
-  { name: "Fresh Bilberry", price: 400 },
-  { name: "Fresh Chikoo", price: 180 },
-  { name: "Fresh Date", price: 300 },
-  { name: "Fresh Elephant Apple", price: 400 },
-  { name: "Fresh Elderberry", price: 350 },
-  { name: "Fresh Feijoa", price: 500 },
-  { name: "Fresh Huckleberry", price: 400 },
-  { name: "Fresh Ice Apple", price: 70 },
-  { name: "Fresh Jaboticaba", price: 450 },
-  { name: "Fresh Olive", price: 400 },
-  { name: "Fresh Olive Plum", price: 300 },
-  { name: "Fresh Pawpaw", price: 200 },
-  { name: "Fresh Red Banana", price: 200 },
-  { name: "Fresh Rose Apple", price: 300 },
-  { name: "Fresh Sugar Apple", price: 350 },
-  { name: "Fresh Tamarillo", price: 400 },
-  { name: "Fresh Wax Apple", price: 350 },
-  { name: "Fresh White Sapote", price: 450 },
-  { name: "Fresh Wood Apple", price: 150 },
-  { name: "Fresh Yellow Plum", price: 250 },
-  { name: "Fresh Ziziphus", price: 200 },
-  { name: "Fresh Duku", price: 500 },
-  { name: "Fresh Mangosteen", price: 800 },
-  { name: "Fresh Miracle Fruit", price: 950 },
-  { name: "Fresh Cloudberry", price: 1000 },
-  { name: "Fresh Chempedak", price: 600 },
-  { name: "Fresh Langra Mango", price: 280 },
-  { name: "Fresh Sindhri Mango", price: 300 },
-  { name: "Fresh Anwar Ratol", price: 350 },
-  { name: "Fresh Chaunsa Mango", price: 320 },
-  { name: "Fresh Kesar Mango", price: 400 },
-  { name: "Fresh Alphonso Mango", price: 450 },
-  { name: "Fresh Falsa", price: 200 },
-  { name: "Fresh Jaman", price: 150 },
-  { name: "Fresh Musk Melon", price: 120 },
-  { name: "Fresh Golden Apple", price: 300 },
-  { name: "Fresh Cape Gooseberry", price: 450 },
+    { name: "Fresh Orange", price: 200 },
+    { name: "Fresh Mango", price: 300 },
+    { name: "Fresh Pineapple", price: 180 },
+    { name: "Fresh Grapes", price: 280 },
+    { name: "Fresh Watermelon", price: 50 },
+    { name: "Fresh Strawberry", price: 500 },
+    { name: "Fresh Blueberry", price: 300 },
+    { name: "Fresh Raspberry", price: 450 },
+    { name: "Fresh Blackberry", price: 400 },
+    { name: "Fresh Kiwi", price: 80 },
+    { name: "Fresh Guava", price: 100 },
+    { name: "Fresh Peach", price: 180 },
 
-  // Vegetables start here
-  { name: "Fresh Potato", price: 80 },
-  { name: "Fresh Tomato", price: 100 },
-  { name: "Fresh Onion", price: 90 },
-  { name: "Fresh Carrot", price: 120 },
-  { name: "Fresh Cabbage", price: 100 },
-  { name: "Fresh Cauliflower", price: 120 },
-  { name: "Fresh Spinach", price: 80 },
-  { name: "Fresh Lettuce", price: 200 },
-  { name: "Fresh Kale", price: 300 },
-  { name: "Fresh Broccoli", price: 250 },
-  { name: "Fresh Bell Pepper", price: 300 },
-  { name: "Fresh Green Chili", price: 180 },
-  { name: "Fresh Zucchini", price: 160 },
-  { name: "Fresh Eggplant", price: 100 },
-  { name: "Fresh Okra", price: 120 },
-  { name: "Fresh Bitter Gourd", price: 140 },
-  { name: "Fresh Bottle Gourd", price: 100 },
-  { name: "Fresh Ridge Gourd", price: 120 },
-  { name: "Fresh Tinda", price: 90 },
-  { name: "Fresh Turnip", price: 100 },
-  { name: "Fresh Radish", price: 100 },
-  { name: "Fresh Beetroot", price: 150 },
-  { name: "Fresh Pumpkin", price: 80 },
-  { name: "Fresh Ash Gourd", price: 120 },
-  { name: "Fresh Snake Gourd", price: 130 },
-  { name: "Fresh Ivy Gourd", price: 150 },
-  { name: "Fresh French Beans", price: 200 },
-  { name: "Fresh Green Beans", price: 180 },
-  { name: "Fresh Cluster Beans", price: 170 },
-  { name: "Fresh Drumstick", price: 200 },
-  { name: "Fresh Corn", price: 100 },
-  { name: "Fresh Sweet Corn", price: 150 },
-  { name: "Fresh Green Peas", price: 220 },
-  { name: "Fresh Spring Onion", price: 100 },
-  { name: "Fresh Garlic", price: 450 },
-  { name: "Fresh Ginger", price: 400 },
-  { name: "Fresh Curry Leaves", price: 150 },
-  { name: "Fresh Mint Leaves", price: 100 },
-  { name: "Fresh Coriander", price: 80 },
-  { name: "Fresh Basil", price: 200 },
-  { name: "Fresh Lemongrass", price: 300 },
-  { name: "Fresh Celery", price: 250 },
-  { name: "Fresh Leeks", price: 180 },
-  { name: "Fresh Arugula", price: 350 },
-  { name: "Fresh Watercress", price: 300 },
-  { name: "Fresh Artichoke", price: 500 },
-  { name: "Fresh Asparagus", price: 400 },
-  { name: "Fresh Brussel Sprouts", price: 500 },
-  { name: "Fresh Chayote", price: 250 },
-  { name: "Fresh Edamame", price: 400 },
-  { name: "Fresh Parsnip", price: 300 },
-  { name: "Fresh Kohlrabi", price: 250 },
-  { name: "Fresh Mustard Greens", price: 180 },
-  { name: "Fresh Amaranth", price: 200 },
-  { name: "Fresh Swiss Chard", price: 220 },
-  { name: "Fresh Yam", price: 180 },
-  { name: "Fresh Sweet Potato", price: 150 },
-  { name: "Fresh Tapioca", price: 140 },
-  { name: "Fresh Lotus Root", price: 300 },
-  { name: "Fresh Bamboo Shoots", price: 400 },
-  { name: "Fresh Fennel", price: 250 },
-  { name: "Fresh Sorrel", price: 180 },
-  { name: "Fresh Purslane", price: 150 },
-  { name: "Fresh Nopal", price: 300 },
-  { name: "Fresh Seaweed", price: 300 },
-  { name: "Fresh Radicchio", price: 350 },
-  { name: "Fresh Endive", price: 320 },
-  { name: "Fresh Romanesco", price: 500 },
-  { name: "Fresh Pak Choi", price: 300 },
-  { name: "Fresh Chinese Cabbage", price: 250 },
-  { name: "Fresh Yardlong Bean", price: 200 },
-  { name: "Fresh Snow Peas", price: 300 },
-  { name: "Fresh Taro", price: 220 },
-  { name: "Fresh Daikon", price: 180 },
-  { name: "Fresh Cassava", price: 200 },
-  { name: "Fresh Sunchoke", price: 400 },
-  { name: "Fresh Jicama", price: 300 },
-  { name: "Fresh Malabar Spinach", price: 200 },
-  { name: "Fresh Mizuna", price: 350 },
-  { name: "Fresh Tatsoi", price: 300 },
-  { name: "Fresh Wasabi Root", price: 400 },
-  { name: "Fresh Horseradish", price: 350 },
-  { name: "Fresh Chicory", price: 250 },
-  { name: "Fresh Dandelion Greens", price: 220 },
-  { name: "Fresh Celery Root", price: 280 },
-  { name: "Fresh Pepper Leaves", price: 180 },
-  { name: "Fresh Banana Flower", price: 200 },
-  { name: "Fresh Lotus Stem", price: 280 },
-  { name: "Fresh Pea Shoots", price: 300 },
-  { name: "Fresh Fenugreek Leaves", price: 150 },
-  { name: "Fresh Colocasia Leaves", price: 200 },
-  { name: "Fresh Cress", price: 250 },
-  { name: "Fresh Snow Fungus", price: 400 },
-  { name: "Fresh Mushrooms", price: 350 },
-  { name: "Fresh Button Mushroom", price: 320 },
-  { name: "Fresh Shiitake Mushroom", price: 400 },
-  { name: "Fresh Oyster Mushroom", price: 500 }
+
+    // Vegetables start here
+    { name: "Fresh Potato", price: 80 },
+    { name: "Fresh Tomato", price: 100 },
+    { name: "Fresh Onion", price: 90 },
+    { name: "Fresh Carrot", price: 120 },
+    { name: "Fresh Cabbage", price: 100 },
+    { name: "Fresh Cauliflower", price: 120 },
+    { name: "Fresh Spinach", price: 80 },
+    { name: "Fresh Lettuce", price: 200 },
+    { name: "Fresh Kale", price: 300 },
+    { name: "Fresh Broccoli", price: 250 },
+    { name: "Fresh Bell Pepper", price: 300 },
+    { name: "Fresh Green Chili", price: 180 },
+    { name: "Fresh Zucchini", price: 160 },
+    { name: "Fresh Eggplant", price: 100 },
+    { name: "Fresh Okra", price: 120 },
+    { name: "Fresh Bitter Gourd", price: 140 },
+    { name: "Fresh Bottle Gourd", price: 100 },
+    { name: "Fresh Ridge Gourd", price: 120 },
+    { name: "Fresh Tinda", price: 90 },
+    { name: "Fresh Turnip", price: 100 },
+    { name: "Fresh Radish", price: 100 },
+    { name: "Fresh Beetroot", price: 150 },
+    { name: "Fresh Pumpkin", price: 80 },
+    { name: "Fresh Ash Gourd", price: 120 },
+    { name: "Fresh Snake Gourd", price: 130 },
+    { name: "Fresh Ivy Gourd", price: 150 },
+    { name: "Fresh French Beans", price: 200 },
+    { name: "Fresh Green Beans", price: 180 },
+    { name: "Fresh Cluster Beans", price: 170 },
+    { name: "Fresh Drumstick", price: 200 },
+    { name: "Fresh Corn", price: 100 },
+    { name: "Fresh Sweet Corn", price: 150 },
+    { name: "Fresh Green Peas", price: 220 },
+    { name: "Fresh Spring Onion", price: 100 },
+    { name: "Fresh Garlic", price: 450 },
+    { name: "Fresh Ginger", price: 400 },
+    { name: "Fresh Curry Leaves", price: 150 },
+    { name: "Fresh Mint Leaves", price: 100 },
+    { name: "Fresh Coriander", price: 80 },
+    { name: "Fresh Basil", price: 200 },
+    { name: "Fresh Lemongrass", price: 300 },
+    { name: "Fresh Celery", price: 250 },
+    { name: "Fresh Leeks", price: 180 },
+    { name: "Fresh Arugula", price: 350 },
+    { name: "Fresh Watercress", price: 300 },
+    { name: "Fresh Artichoke", price: 500 },
+    { name: "Fresh Asparagus", price: 400 },
+    { name: "Fresh Brussel Sprouts", price: 500 },
+    { name: "Fresh Chayote", price: 250 },
+    { name: "Fresh Edamame", price: 400 },
+    { name: "Fresh Parsnip", price: 300 },
+    { name: "Fresh Kohlrabi", price: 250 },
+    { name: "Fresh Mustard Greens", price: 180 },
+    { name: "Fresh Amaranth", price: 200 },
+    { name: "Fresh Swiss Chard", price: 220 },
+    { name: "Fresh Yam", price: 180 },
+    { name: "Fresh Sweet Potato", price: 150 },
+    { name: "Fresh Tapioca", price: 140 },
+    { name: "Fresh Lotus Root", price: 300 },
+    { name: "Fresh Bamboo Shoots", price: 400 },
+    { name: "Fresh Fennel", price: 250 },
+    { name: "Fresh Sorrel", price: 180 },
+    { name: "Fresh Purslane", price: 150 },
+    { name: "Fresh Nopal", price: 300 },
+    { name: "Fresh Seaweed", price: 300 },
+    { name: "Fresh Radicchio", price: 350 },
+    { name: "Fresh Endive", price: 320 },
+    { name: "Fresh Romanesco", price: 500 },
+    { name: "Fresh Pak Choi", price: 300 },
+    { name: "Fresh Chinese Cabbage", price: 250 },
+    { name: "Fresh Yardlong Bean", price: 200 },
+    { name: "Fresh Snow Peas", price: 300 },
+    { name: "Fresh Taro", price: 220 },
+    { name: "Fresh Daikon", price: 180 },
+    { name: "Fresh Cassava", price: 200 },
+    { name: "Fresh Sunchoke", price: 400 },
+    { name: "Fresh Jicama", price: 300 },
+    { name: "Fresh Malabar Spinach", price: 200 },
+    { name: "Fresh Mizuna", price: 350 },
+    { name: "Fresh Tatsoi", price: 300 },
+    { name: "Fresh Wasabi Root", price: 400 },
+    { name: "Fresh Horseradish", price: 350 },
+    { name: "Fresh Chicory", price: 250 },
+    { name: "Fresh Dandelion Greens", price: 220 },
+    { name: "Fresh Celery Root", price: 280 },
+    { name: "Fresh Pepper Leaves", price: 180 },
+    { name: "Fresh Banana Flower", price: 200 },
+    { name: "Fresh Lotus Stem", price: 280 },
+    { name: "Fresh Pea Shoots", price: 300 },
+    { name: "Fresh Fenugreek Leaves", price: 150 },
+    { name: "Fresh Colocasia Leaves", price: 200 },
+    { name: "Fresh Cress", price: 250 },
+    { name: "Fresh Snow Fungus", price: 400 },
+    { name: "Fresh Mushrooms", price: 350 },
+    { name: "Fresh Button Mushroom", price: 320 },
+    { name: "Fresh Shiitake Mushroom", price: 400 },
+    { name: "Fresh Oyster Mushroom", price: 500 }
 ];
 
 
@@ -214,29 +139,34 @@ const Page = () => {
     };
 
     const handleAddItem = () => {
-    const number = parseInt(count);
-    if (!number || number <= 0) {
-      setSelectedItems([]); // Clear selected items if invalid count
-      return;
-    }
+        const number = parseInt(count);
+        if (!number || number <= 0) {
+            setSelectedItems([]); // Clear selected items if invalid count
+            return;
+        }
 
-    // Shuffle and pick the desired number from the items list
-    const shuffled = [...items].sort(() => 0.5 - Math.random());
-    const selected = shuffled.slice(0, number).map(item => ({
-      ...item,
-      quantity: 1 // Set quantity to 1 for each item
-    }));
+        // Shuffle and pick the desired number from the items list
+        const shuffled = [...items].sort(() => 0.5 - Math.random());
+        const selected = shuffled.slice(0, number).map(item => ({
+            ...item,
+            quantity: 1 // Set quantity to 1 for each item
+        }));
 
-    // Update the selected items list and generate an order ID
-    setSelectedItems(selected);
-    setOrderId(generateOrderId());
-  };
+        // Update the selected items list and generate an order ID
+        setSelectedItems(selected);
+        setOrderId(generateOrderId());
+    };
 
     // Generate order ID based on current time
     const generateOrderId = () => Date.now().toString();
 
     const total = calculateTotal();
     const totalItemsCount = selectedItems.reduce((acc, item) => acc + item.quantity, 0);
+    // Round total to the next 100
+    const roundToNextHundred = (amount) => {
+        return Math.ceil(amount / 100) * 100;
+    };
+
 
     return (
         <div className="min-h-screen bg-white text-black font-mono">
@@ -309,10 +239,10 @@ const Page = () => {
                         {selectedItems.map((item, index) => (
                             <div key={index} className="flex justify-between text-[18px] font-bold font-mono">
                                 <div>
-                                <span>{item.name}</span>
+                                    <span>{item.name}</span>
                                 </div>
                                 <div>
-                                Rs {item.price}
+                                    Rs {item.price}
                                 </div>
                             </div>
                         ))}

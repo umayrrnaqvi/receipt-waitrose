@@ -97,6 +97,25 @@ export default function ReceiptLayout() {
   const [customerId, setCustomerId] = useState("");
 
 
+  const now = new Date();
+
+  const formatDate = (inputDate) => {
+    if (!inputDate) return "--/--/----";
+    const [year, month, day] = inputDate.split("-");
+    return `${day}/${month}/${year}`;
+  };
+
+  const formatTime = (inputDateObj) => {
+    const hour = inputDateObj.getHours().toString().padStart(2, "0");
+    const minute = inputDateObj.getMinutes().toString().padStart(2, "0");
+    const formattedHour = (parseInt(hour) % 12 || 12).toString().padStart(2, "0");
+    return `${formattedHour}:${minute}`;
+  };
+
+  const todayDate = now.toISOString().split("T")[0]; // "YYYY-MM-DD"
+  const formattedDate = formatDate(todayDate);
+  const formattedTime = formatTime(now);
+
 
   const getAllItems = () => {
     return Object.values(gccItems).flat();
@@ -146,12 +165,6 @@ export default function ReceiptLayout() {
     setIsClient(true);
   }, []);
 
-
-  const updateDateTime = () => {
-    if (manualDate && manualTime) {
-      setCurrentDate(`${manualDate} ${manualTime}`);
-    }
-  };
 
   const handleAddRandomItems = () => {
     if (!itemCount || itemCount < 1) return;
@@ -345,9 +358,9 @@ export default function ReceiptLayout() {
             </div>
 
             {/* Values row */}
-            <div className="grid grid-cols-6 gap-2 text-left mt-1">
-              <span className="col-span-2">{manualDate || currentDate.split(" ")[0]}</span>
-              <span>{manualTime || currentDate.split(" ")[1]}</span>
+            <div className="grid grid-cols-6 gap-4 text-left mt-1">
+              <p>{formattedDate}</p>
+              <p className="col-start-3">{formattedTime}</p>
               <span>2270</span>
               <span>11</span>
               <span>{receiptNumber}</span>

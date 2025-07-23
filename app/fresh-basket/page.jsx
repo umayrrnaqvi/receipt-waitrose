@@ -14,11 +14,11 @@ export default function FreshBasketReceipt() {
         { name: "Fresh Ginger" }, { name: "Fresh Lady Finger" }, { name: "Fresh Tomato" }, { name: "Fresh Brinjal" },
         { name: "Fresh Radish" }, { name: "Fresh Ridge Gourd" }, { name: "Fresh Capsicum" },
         { name: "Fresh Spinach" }, { name: "Fresh Onion" }, { name: "Fresh Zucchini" },
-        { name: "Fresh Turnip" },{ name: "Fresh Celery" },{ name: "Fresh Arugula" },{ name: "Fresh Endive" },
-        { name: "Fresh Parsnip" },{ name: "Fresh Swiss Chard" }, { name: "Fresh Kale" },{ name: "Fresh Mustard Greens" },
-        { name: "Fresh Taro Root" },{ name: "Fresh Yam" }, { name: "Fresh Sweet Potato" },{ name: "Fresh Artichoke" },
-        { name: "Fresh Okra" },{ name: "Fresh Green Beans" },{ name: "Fresh Snow Peas" },{ name: "Fresh Peas" },
-        { name: "Fresh White Radish" }, { name: "Fresh Carrot" },{ name: "Fresh Baby Corn" },
+        { name: "Fresh Turnip" }, { name: "Fresh Celery" }, { name: "Fresh Arugula" }, { name: "Fresh Endive" },
+        { name: "Fresh Parsnip" }, { name: "Fresh Swiss Chard" }, { name: "Fresh Kale" }, { name: "Fresh Mustard Greens" },
+        { name: "Fresh Taro Root" }, { name: "Fresh Yam" }, { name: "Fresh Sweet Potato" }, { name: "Fresh Artichoke" },
+        { name: "Fresh Okra" }, { name: "Fresh Green Beans" }, { name: "Fresh Snow Peas" }, { name: "Fresh Peas" },
+        { name: "Fresh White Radish" }, { name: "Fresh Carrot" }, { name: "Fresh Baby Corn" },
     ];
 
     const [count, setCount] = useState("");
@@ -91,7 +91,7 @@ export default function FreshBasketReceipt() {
             <h1 className="text-xl font-bold text-center mb-4 no-print">Fresh Basket Generator</h1>
 
             {/* Inputs */}
-            <div className="w-[80mm] mx-auto flex flex-wrap gap-2 justify-center mb-4 no-print text-sm">
+            <div className=" mx-auto flex flex-wrap gap-2 justify-center mb-4 no-print text-sm">
                 <input type="number" placeholder="Number of Items" value={count} onChange={(e) => setCount(e.target.value)} className="border p-2 rounded w-[100px]" />
                 <input type="date" value={date} onChange={(e) => setDate(e.target.value)} className="border p-2 rounded" />
                 <input type="time" value={time} onChange={(e) => setTime(e.target.value)} className="border p-2 rounded" />
@@ -100,7 +100,7 @@ export default function FreshBasketReceipt() {
 
             {/* Receipt */}
             <div className="p-6 max-w-sm mx-auto text-sm bg-white">
-                <div className="w-[80mm] bg-white px-2 text-lg shadow text-black print:shadow-none">
+                <div className=" bg-white px-2 text-lg shadow text-black print:shadow-none">
                     <Image src={freshlogo} width={200} alt="Fresh Basket Logo" className="mx-auto mt-2" priority />
                     <h2 className='text-center font-bold text-lg'>FRUITS AND MORE</h2>
                     <p className="w-73 text-center text-[17px] font-bold">Shop #45, Block A, N. Nazimabad<br />Karachi, Pakistan</p>
