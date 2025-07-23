@@ -113,8 +113,9 @@ export default function ReceiptLayout() {
   };
 
   const todayDate = now.toISOString().split("T")[0]; // "YYYY-MM-DD"
-  const formattedDate = formatDate(todayDate);
-  const formattedTime = formatTime(now);
+  const formattedDate = manualDate ? formatDate(manualDate) : formatDate(todayDate);
+const formattedTime = manualTime ? manualTime : formatTime(now);
+
 
 
   const getAllItems = () => {
