@@ -1,6 +1,5 @@
 'use client';
 import { useState } from "react";
-import Image from 'next/image';
 
 const items = [
     { name: "Fresh Orange", price: 200 },
@@ -117,6 +116,103 @@ const items = [
     { name: "Fresh Oyster Mushroom", price: 500 }
 ];
 
+const stores = [
+    {
+        name: "Al-Hira Supermarket",
+        address: "Gulberg, Lahore, Punjab, Pakistan",
+        description: "A well-stocked supermarket in Lahore's Gulberg area, offering local, Middle Eastern, and South Asian goods." // Alt Bold, modern setup
+    },
+    {
+        name: "Ghar Bazaar",
+        address: "DHA Phase 8, Air Avenue, Lahore, Punjab, Pakistan",
+        description: "A grocery store in DHA Phase 8, Lahore offering fresh produce, household items, and delivery services."
+    },
+    {
+        name: "Rahim Store",
+        address: "Street 7, Sutlej Block, Allama Iqbal Town, Lahore 54000, Punjab, Pakistan",
+        description: "Serving Lahore with quality groceries and household goods."
+    },
+    {
+        name: "Imtiaz Mega",
+        address: "Noor Mahal Rd, SS Tower, Bahawalpur, Punjab, Pakistan",
+        description: "A large-format Imtiaz branch offering bakery, meat, produce, pharmacy, electronics, and more."
+    },
+    {
+        name: "Springs Store",
+        address: "13th Lane, Khayaban-e-Bukhari, Phase 6 DHA, Karachi, Sindh, Pakistan",
+        description: "Premium grocery and household products in Karachi’s DHA Phase 6."
+    },
+    {
+        name: "Marhaba Mart",
+        address: "East Canal Rd (204 RB), next to Babu CNG, Faisalabad, Punjab, Pakistan",
+        description: "A neighborhood supermarket in Faisalabad offering daily groceries, sweets, and household essentials."
+    },
+    {
+        name: "Taqwa Market",
+        address: "G-9/4, Islamabad, Islamabad Capital Territory, Pakistan",
+        description: "A well-regarded supermarket in Islamabad known for fresh produce and reliable service."
+    },
+    {
+        name: "Bismillah Store",
+        address: "Sector G, DHA Phase 1, Lahore, Punjab, Pakistan",
+        description: "Providing household essentials with a smile in high-end DHA Phase 1."
+    },
+    {
+        name: "Carrefour – Avenue Mall",
+        address: "Avenue Mall, Ghazi Road, Rehman Gardens, Lahore, Punjab, Pakistan",
+        description: "A world-class hypermarket inside Avenue Mall offering daily deals and vast variety."
+    },
+    {
+        name: "Model Bazaar",
+        address: "Kashmir Road, Sector W, Peoples Colony, Gujranwala, Punjab, Pakistan",
+        description: "A one-stop shop for fresh produce and household items in Gujranwala."
+    },
+    {
+        name: "Super Duper Supermarket",
+        address: "Dr. Farooq Shaheed Chowk, Block 11, Chichawatni, Sahiwal District, Punjab, Pakistan",
+        description: "A well-known supermarket in Chichawatni for daily essentials."
+    },
+    {
+        name: "Zaman Son's Super Mall",
+        address: "Near Sabzi Mandi, Attock, Punjab, Pakistan",
+        description: "A large retail destination offering groceries and home goods in Attock."
+    },
+    {
+        name: "Cheema & Chattha Rice Store",
+        address: "Kiran Plaza, F-8 Markaz, Islamabad, Islamabad Capital Territory, Pakistan",
+        description: "A specialized store focused on rice and household essentials in Islamabad’s F-8."
+    },
+    {
+        name: "Karachi Lee Market",
+        address: "Harris Road, Napier Quarter, Karachi, Sindh, Pakistan",
+        description: "A historic local market known for a wide selection of groceries and goods."
+    },
+    {
+        name: "Bisma Departmental Store",
+        address: "Circular Road, Alipur, Muzaffargarh, Punjab, Pakistan",
+        description: "A departmental store serving the Muzaffargarh community."
+    },
+    {
+        name: "Faisal Super Mart",
+        address: "Nawabshah Road, Sanghar, Sindh, Pakistan",
+        description: "Providing fresh groceries and daily essentials in Sanghar."
+    },
+    {
+        name: "Diamond Super Market",
+        address: "Karachi, Sindh, Pakistan",
+        description: "A longstanding supermarket chain in Karachi, operating for over 57 years."
+    },
+    {
+        name: "Friends Baqala",
+        address: "Karachi, Sindh, Pakistan",
+        description: "A newer supermarket chain in Karachi, established in 2023."
+    },
+    {
+        name: "Umar Cash and Carry",
+        address: "Lahore, Punjab, Pakistan",
+        description: "A popular cash-and-carry wholesaler in Lahore."
+    }
+];
 
 const Page = () => {
 
@@ -125,7 +221,7 @@ const Page = () => {
     const [orderId, setOrderId] = useState(""); // Generate order ID
     const [date, setDate] = useState(""); // Date input
     const [time, setTime] = useState(""); // Time input
-    const [selectedCategory, setSelectedCategory] = useState("Fruits"); // Default category: Fruits
+    const [selectedStore, setSelectedStore] = useState(stores[0]);
 
     // Function to calculate total
     const calculateTotal = () =>
@@ -171,11 +267,28 @@ const Page = () => {
     return (
         <div className="min-h-screen bg-white text-black font-mono">
             <h1 className="text-3xl font-bold text-center mb-8 no-print">
-                AL-JANNAT Receipt Generator
+                 Receipt Generator
             </h1>
 
             {/* Item Input Section */}
             <div className="flex flex-wrap gap-4 mb-6 justify-center no-print">
+
+                <select
+                    value={selectedStore.name}
+                    onChange={(e) => {
+                        const store = stores.find(s => s.name === e.target.value);
+                        setSelectedStore(store);
+                    }}
+                    className="border border-gray-300 p-2 rounded"
+                >
+                    {stores.map((store, index) => (
+                        <option key={index} value={store.name}>
+                            {store.name}
+                        </option>
+                    ))}
+                </select>
+
+
                 <input
                     type="number"
                     value={count}
@@ -208,18 +321,15 @@ const Page = () => {
 
             {/* Receipt Section */}
             <div id="receipt" className="receipt-container max-w-sm mx-auto bg-white border border-black p-4 text-sm print:w-[250px]">
-                <div className="w-[90%] flex justify-center">
-                    <Image
-                        src='/trolly.png'
-                        alt="Trolley Logo"
-                        width={50} // adjust for your printer
-                        height={50}
-                        priority />
-                </div>
 
                 <div className="text-center mb-4 leading-tight">
-                    <h2 className="text-[50px] font-sans font-bold tracking-wide text-center">Al Jannat Green Mart</h2>
-                    <p className="text-[18px] font-bold font-mono mt-5">DHA Phase 8 at 13/L ,air avenue  Lahore, Pakistan </p>
+                    <h2 className="text-[50px] font-sans font-bold tracking-wide text-center">
+                        {selectedStore.name}
+                    </h2>
+                    <p className="text-[18px] font-bold font-mono mt-5">
+                        {selectedStore.address}
+                    </p>
+
 
                     <div className="text-left text-[18px] font-bold font-mono mt-1 border-b-2 border-dashed">
                         <p>Date: {formatDate(date)}</p>
@@ -277,11 +387,12 @@ const Page = () => {
                 </div>
 
                 <div className="w-full mx-auto px-4 flex flex-col items-center text-center text-lg border-b-2 border-dashed">
-                    <p className="text-[17px] text-center font-bold mt-6 leading-tight">
-                        Thank you for shopping at <span className="font-semibold">Al Jannat Green Mart</span>!<br />
-                        Your trusted destination for fresh fruits, vegetables, and daily groceries.<br />
+                    <p className="text-[16px] text-center font-bold mt-6 leading-tight">
+                        Thank you for shopping at <span className="font-semibold">{selectedStore.name}</span>!<br />
+                        {selectedStore.description}<br />
                         We truly value your business and hope to see you again soon.<br /><br />
                     </p>
+
                 </div>
                 <div>
                     <p className="text-[15px] font-bold text-center mt-1">
