@@ -118,6 +118,11 @@ const items = [
 
 const stores = [
     {
+        name: "Al Jannat Green Mart",
+        address: "DHA Phase 8 at 13/L, air avenue Lahore, Pakistan",
+        description: "Your trusted destination for fresh fruits, vegatables, and daily groceries."
+    },
+    {
         name: "Al-Hira Supermarket",
         address: "Gulberg, Lahore, Punjab, Pakistan",
         description: "A well-stocked supermarket in Lahore's Gulberg area, offering local, Middle Eastern, and South Asian goods." // Alt Bold, modern setup
@@ -211,7 +216,7 @@ const stores = [
         name: "Umar Cash and Carry",
         address: "Lahore, Punjab, Pakistan",
         description: "A popular cash-and-carry wholesaler in Lahore."
-    }
+    },
 ];
 
 const Page = () => {
@@ -267,7 +272,7 @@ const Page = () => {
     return (
         <div className="min-h-screen bg-white text-black font-mono">
             <h1 className="text-3xl font-bold text-center mb-8 no-print">
-                 Receipt Generator
+                Receipt Generator
             </h1>
 
             {/* Item Input Section */}
