@@ -216,7 +216,7 @@ const SuksawatReceipt = () => {
                 <div className="text-center my-4">
                     <p className="font-bold text-md">ขอบคุณที่ใช้บริการตลาดสดสุขสวัสดิ์</p>
                     <p className="text-[11px]">
-                        นโยบายคืนสินค้า: รับคืนสินค้าภายใน 48 ชม. พร้อมใบเสร็จ
+                         : รับคืนสินค้าภายใน 48 ชม. พร้อมใบเสร็จ
                     </p>
                     <p className="font-bold text-[11px]">เว็บไซต์: www.suksawatmarket.com</p>
                     <p className="text-[11px]">อีเมล: info@suksawatmarket.com</p>
