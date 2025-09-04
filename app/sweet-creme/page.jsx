@@ -28,8 +28,18 @@ const SweetCremeReceipt = () => {
         { name: "Blueberry Burst", rate: 170, unit: "ltr" },
         { name: "Peach Mart", rate: 125, unit: "kg" },
         { name: "Mocha Fudge", rate: 180, unit: "kg" },
-        { name: "Jelly Bean Joy", rate: 200, unit: "kg" },
         { name: "Pineapple Juice", rate: 90, unit: "ltr" },
+        { name: "lemon mart", rate: 140, unit: "ltr" },
+        { name: "Peach shake", rate: 200, unit: "ltr" },
+        { name: "Avacado shake", rate: 400, unit: "ltr" },
+        { name: "Cherry Icecream", rate: 100, unit: "kg" },
+        { name: "Dragon Fruit Shake", rate: 180, unit: "ltr" },
+        { name: "Dragon Fruit Shake", rate: 180, unit: "ltr" },
+        { name: "Blueberry Icecream", rate: 120, unit: "kg" },
+        { name: "Vanila Shake", rate: 180, unit: "ltr" },
+        { name: "Mango Shake", rate: 320, unit: "ltr" },
+        { name: "Blackberry Icecream", rate: 180, unit: "kg" },
+        { name: "Blackberry Icecream", rate: 180, unit: "kg" },
     ];
 
     // Set default date & time
