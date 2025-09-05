@@ -25,7 +25,7 @@ const SweetCremeReceipt = () => {
     localStorage.setItem("billNo", billNo);
   }, [billNo]);
 
-  useEffect(() => {
+  useEffect(() => { 
     localStorage.setItem("tokenNo", tokenNo);
   }, [tokenNo]);
 

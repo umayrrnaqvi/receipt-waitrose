@@ -1,9 +1,68 @@
 'use client';
 import React from "react";
-import { useState , useEffect} from "react";
+import { useState, useEffect } from "react";
 
 const data = {
     Fruits: [
+         // 👔 Shirts
+        { name: "Reusable White Cotton Formal Shirt" },
+        { name: "Reusable Black Casual Shirt" },
+        { name: "Reusable Navy Blue Denim Shirt" },
+        { name: "Reusable Light Blue Oxford Shirt" },
+        { name: "Reusable Maroon Slim Fit Shirt" },
+        { name: "Reusable Olive Green Casual Shirt" },
+        { name: "Reusable Grey Checked Shirt" },
+        { name: "Reusable Red Plaid Flannel Shirt" },
+        { name: "Reusable Mustard Yellow Shirt" },
+        { name: "Reusable Pastel Pink Button-Down Shirt" },
+
+        // 👕 T-Shirts
+        { name: "Reusable White Round Neck T-Shirt" },
+        { name: "Reusable Black Crew Neck T-Shirt" },
+        { name: "Reusable Grey V-Neck T-Shirt" },
+        { name: "Reusable Navy Blue Polo T-Shirt" },
+        { name: "Reusable Red Graphic Print T-Shirt" },
+        { name: "Reusable Olive Green Sports T-Shirt" },
+        { name: "Reusable Yellow Striped T-Shirt" },
+        { name: "Reusable Sky Blue Plain T-Shirt" },
+        { name: "Reusable Purple Half Sleeve T-Shirt" },
+        { name: "Reusable Beige Oversized T-Shirt" },
+
+        // 👖 Trousers
+        { name: "Reusable Black Slim Fit Trouser" },
+        { name: "Reusable Navy Blue Chinos" },
+        { name: "Reusable Grey Formal Trousers" },
+        { name: "Reusable Beige Cotton Trousers" },
+        { name: "Reusable Olive Green Cargo Pants" },
+        { name: "Reusable White Linen Trousers" },
+        { name: "Reusable Dark Brown Casual Trousers" },
+        { name: "Reusable Khaki Straight Fit Trouser" },
+        { name: "Reusable Light Grey Ankle Fit Trouser" },
+        { name: "Reusable Maroon Slim Chinos" },
+
+        // 👖 Pants
+        { name: "Reusable Black Jogger Pants" },
+        { name: "Reusable Navy Blue Track Pants" },
+        { name: "Reusable Grey Sweatpants" },
+        { name: "Reusable Olive Green Cargo Pants" },
+        { name: "Reusable Dark Blue Denim Jeans" },
+        { name: "Reusable Light Blue Distressed Jeans" },
+        { name: "Reusable White Slim Jeans" },
+        { name: "Reusable Brown Corduroy Pants" },
+        { name: "Reusable Mustard Yellow Joggers" },
+        { name: "Reusable Charcoal Black Skinny Pants" },
+
+        // 🧒 Unisex/Youth Styles
+        { name: "Reusable Red Hoodie T-Shirt" },
+        { name: "Reusable White Polo Shirt" },
+        { name: "Reusable Black Skinny Jeans" },
+        { name: "Reusable Navy Blue Shorts" },
+        { name: "Reusable Grey Jogger Trousers" },
+        { name: "Reusable Yellow Printed T-Shirt" },
+        { name: "Reusable Green Cargo Shorts" },
+        { name: "Reusable Light Blue Hoodie Shirt" },
+        { name: "Reusable Maroon Track Pants" },
+        { name: "Reusable Beige Relaxed Fit Pants" },
         { name: "Apple", arabic: "تفاحة" },
         { name: "Banana", arabic: "موز" },
         { name: "Orange", arabic: "برتقال" },
@@ -53,9 +112,14 @@ const data = {
         { name: "Quince", arabic: "سفرجل" },
         { name: "Tamarind", arabic: "تمر هندي" },
         { name: "Ugli Fruit", arabic: "فاكهة القبيحة" },
-        { name: "Medlar", arabic: "ميدلار" }
+        { name: "Medlar", arabic: "ميدلار" },
     ],
     Vegetables: [
+        { name: "AquaSip Bottle – 500 ml" },
+        { name: "HydroMate Bottle – 750 ml" },
+        { name: "CoolWave Bottle – 1000 ml" },
+        { name: "PureFlow Bottle – 1200 ml" },
+        { name: "MaxHydro Bottle – 1500 ml" },
         { name: "Tomato", arabic: "طماطم" },
         { name: "Potato", arabic: "بطاطا" },
         { name: "Carrot", arabic: "جزر" },
@@ -105,7 +169,7 @@ const data = {
         { name: "Watercress", arabic: "جرجير مائي" },
         { name: "Scallion", arabic: "بصل أخضر" },
         { name: "Spring Onion", arabic: "بصل ربيعي" },
-        { name: "Snake Gourd", arabic: "قرع الأفعى" }
+        { name: "Snake Gourd", arabic: "قرع الأفعى" },
     ]
 };
 
@@ -117,11 +181,8 @@ const AlMayaPage = () => {
     const [quantity, setQuantity] = useState(1);
     const [price, setPrice] = useState("");
     const [orderId, setOrderId] = useState("");
-    // const [currentDateTime, setCurrentDateTime] = useState(new Date());
 
-    const generateBarcodeNumber = () => {
-        return Date.now().toString(); // Unique barcode number as string
-    };
+    const generateBarcodeNumber = () => Date.now().toString();
 
     const handleAddItem = () => {
         if (!selectedItem || !price || quantity <= 0) return;
@@ -133,8 +194,8 @@ const AlMayaPage = () => {
             arabic: itemData.arabic,
             quantity,
             price,
-            id: Date.now(),               // Keep id for React keys or anything else
-            barcode: generateBarcodeNumber() // Assign barcode here
+            id: Date.now(),
+            barcode: generateBarcodeNumber()
         };
 
         setItems([...items, newItem]);
@@ -143,35 +204,18 @@ const AlMayaPage = () => {
         setPrice("");
     };
 
-
-
     const calculateTotal = () => {
-        const fixedItemPrice = 25; // e.g., for "SHOP BAG PLAIN L"
-        return (
-            items.reduce((total, item) => total + item.quantity * parseFloat(item.price), 0) +
-            fixedItemPrice
-        );
+        return items.reduce((total, item) => total + item.quantity * parseFloat(item.price), 0);
     };
 
+    const generateOrderId = () => Date.now().toString();
 
     useEffect(() => {
         setOrderId(generateOrderId());
     }, []);
 
-        const generateOrderId = () => Date.now().toString();
-
-
     const now = new Date();
 
-    const fixedItem = {
-        name: "SHOP BAG PLAIN L",
-        arabic: "حقيبة التسوق",
-        quantity: 1,
-        price: 25,
-        barcode: "920112001231",
-    };
-
-    // Format date as dd.mm.yy
     const formatDate = (date) => {
         const day = String(date.getDate()).padStart(2, '0');
         const month = String(date.getMonth() + 1).padStart(2, '0');
@@ -179,28 +223,18 @@ const AlMayaPage = () => {
         return `${day}/${month}/${year}`;
     };
 
-
     const formatTime = (date) => {
-        // getHours() returns hours in 24-hour format (0-23)
         const hours = String(date.getHours()).padStart(2, '0');
         const minutes = String(date.getMinutes()).padStart(2, '0');
         return `${hours}:${minutes}`;
     };
 
-
-    console.log(formatTime(new Date())); // e.g. "14:07"
-
-
-
-    // Calculate VAT and Net Total
     const total = calculateTotal();
-    const vatRate = 0.05; // 5%
+    const vatRate = 0.05;
     const vatAmount = total * vatRate;
     const netTotal = total + vatAmount;
 
     const totalItemsCount = items.reduce((acc, item) => acc + item.quantity, 0);
-
-
 
     return (
         <div className="min-h-screen bg-white p-6 text-black font-mono">
@@ -235,7 +269,6 @@ const AlMayaPage = () => {
                     ))}
                 </select>
 
-
                 <input
                     type="number"
                     placeholder="Qty"
@@ -267,6 +300,7 @@ const AlMayaPage = () => {
                 id="receipt"
                 className="receipt-container max-w-sm mx-auto bg-white border border-black p-4 text-sm print:w-[300px]"
             >
+                {/* Header */}
                 <div className="text-center mb-4 leading-tight">
                     <div className="text-left">
                         <h2 className="text-[50px] font-sans font-bold tracking-wide pl-5">al maya</h2>
@@ -282,6 +316,7 @@ const AlMayaPage = () => {
                             TRN: 100065888900003
                         </p>
                     </div>
+
                     <div className="text-xs flex justify-center gap-5 border-t-2 border-b-2 border-gray-500 border-dashed py-1 mt-2">
                         <p className="font-mono text-sm uppercase tracking-wide flex items-center gap-5">
                             <span>Tax Invoice</span>
@@ -289,18 +324,21 @@ const AlMayaPage = () => {
                         </p>
                     </div>
 
-                    <div className=" border-b-2 border-gray-500 border-dashed py-2">
+                    <div className="border-b-2 border-gray-500 border-dashed py-2">
                         <p className="text-[15px] flex gap-12 font-mono font-bold">
                             <span>MANAGER:MR.RAM</span>
                             <span> PH 02-6278680</span>
                         </p>
                         <p className="font-mono text-sm uppercase tracking-wide flex items-center gap-5 mt-2">
-                            Date: {formatDate(now)} {formatTime(now)}</p>
+                            Date: {formatDate(now)} {formatTime(now)}
+                        </p>
                         <p className=" flex gap-8 font-mono text-sm uppercase tracking-wide">
                             <span>TILL: 137</span>
-                            <span>TRANS: 285</span></p>
+                            <span>TRANS: 285</span>
+                        </p>
                         <p className="flex font-mono text-sm uppercase tracking-wide">
-                            Cashier: 114327/TILAK</p>
+                            Cashier: 114327/TILAK
+                        </p>
 
                         <div>
                             <p className="flex gap-20 mt-2 font-mono text-sm">
@@ -320,33 +358,27 @@ const AlMayaPage = () => {
                             <p className=" mt-5 font-mono text-sm uppercase tracking-wide">
                                 AMOUNT
                             </p>
-
                         </div>
                     </div>
                 </div>
 
-
+                {/* Items Table */}
                 <table className="w-full text-left text-sm mb-4">
                     <tbody>
                         {items.length > 0 ? (
                             items.map((item) => (
                                 <tr key={item.id}>
-                                    {/* Barcode */}
-                                    <td className="py-1 flex flex-col font-mono text-sm uppercase tracking-wide ">{item.barcode}
-                                        {/* Item name and Arabic */}
+                                    <td className="py-1 flex flex-col font-mono text-sm uppercase tracking-wide">
+                                        {item.barcode}
                                         <td className="font-arabic font-bold"> {item.arabic} </td>
-                                        <td className="py-1">
-                                            {item.name}
-                                        </td>
+                                        <td className="py-1">{item.name}</td>
                                     </td>
 
-                                    {/* Unit Price and Quantity stacked vertically and centered */}
                                     <td className="py-1 text-center font-mono text-sm uppercase tracking-wide">
                                         <div>{parseFloat(item.price).toFixed(2)}</div>
-                                        <div className="font-mono text-sm uppercase tracking-wide">{item.quantity} PC </div>
+                                        <div>{item.quantity} PC </div>
                                     </td>
 
-                                    {/* Total Price */}
                                     <td className="py-1 text-right">
                                         {(item.quantity * parseFloat(item.price)).toFixed(2)} A
                                     </td>
@@ -362,33 +394,13 @@ const AlMayaPage = () => {
                     </tbody>
                 </table>
 
-                <div className="flex justify-between border-b-2 border-gray-500 border-dashed">
-                    <div>
-                        <p className="font-mono text-sm uppercase tracking-wide">{fixedItem.barcode}</p>
-                        <p className="font-arabic font-bold">{fixedItem.arabic}</p>
-                        <p>{fixedItem.name}</p>
-                    </div>
-
-                    <div className="text-center font-mono text-sm uppercase tracking-wide">
-                        <p>{fixedItem.price}</p>
-                        <p className="mt-4">{fixedItem.quantity} PC</p>
-                    </div>
-
-                    <div className="mt-9">
-                        <p>{fixedItem.price} A</p>
-                    </div>
-                </div>
-
-
-
+                {/* Totals */}
                 <div className="flex justify-between font-mono font-bold tracking-widest mt-2 pb-2 border-b-2 border-gray-500 border-dashed">
                     <span className="uppercase">AED*TOT INCL VAT Items: {totalItemsCount}</span>
                     <span>{netTotal.toFixed(2)}</span>
                 </div>
 
-
                 <div className="mt-2 text-sm font-mono">
-
                     <div className="flex justify-around font-mono uppercase tracking-widest">
                         <span className="uppercase">AED AGGREGATOR ONLINE</span>
                         <span>{netTotal.toFixed(2)}</span>
@@ -402,31 +414,34 @@ const AlMayaPage = () => {
                         <p className="mt-5">00</p>
                     </div>
 
-
                     <div className="border-b-2 border-gray-500 border-dashed">
                         <p className=" text-[12px] font-mono font-bold text-sm uppercase tracking-wide flex items-center gap-5 mt-2">
                             {formatDate(now)} {formatTime(now)}
                             <span>4136137</span>
                             <span>0285</span>
-                            <span>TILAK</span></p>
+                            <span>TILAK</span>
+                        </p>
                     </div>
 
                     {/* VAT */}
                     <div className="flex justify-between mt-1 text-sm border-b-2 border-gray-500 border-dashed">
                         <p className="flex flex-col">
                             <span className="text-[10px] font-arabic font-bold">ضريبة القيمة</span>
-                            <span className="font-mono">VAT%</span> </p>
+                            <span className="font-mono">VAT%</span>
+                        </p>
                         <p className="flex flex-col">
                             <span className="text-[10px] font-arabic font-bold">المبلغ ( ضريبة)</span>
-                            <span className="font-mono">AMOUNT(excl VAT)</span> </p>
+                            <span className="font-mono">AMOUNT(excl VAT)</span>
+                        </p>
                         <p className="flex flex-col">
                             <span className=" text-[10px] font-arabic font-bold">قيمة الضريبة</span>
-                            <span className="font-mono"> VAT AMOUNT</span> </p>
+                            <span className="font-mono"> VAT AMOUNT</span>
+                        </p>
                     </div>
 
                     <div className="flex justify-around border-b-2 border-gray-500 border-dashed">
                         <span>5%</span>
-                        <span>{netTotal.toFixed(2)}</span>
+                        <span>{total.toFixed(2)}</span>
                         <span>{vatAmount.toFixed(2)}</span>
                     </div>
 
@@ -438,7 +453,6 @@ const AlMayaPage = () => {
                     </div>
                 </div>
             </div>
-
 
             {/* Print Button */}
             <div className="mt-6 flex justify-center no-print">
@@ -454,6 +468,6 @@ const AlMayaPage = () => {
             </div>
         </div>
     );
-}
+};
 
-export default AlMayaPage
+export default AlMayaPage;
