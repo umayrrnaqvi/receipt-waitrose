@@ -112,7 +112,6 @@ const generateItems = () => {
           placeholder="Number of items"
           value={numItems}
           min="1"
-          max={menuItems.length}
           onChange={(e) => setNumItems(Number(e.target.value))}
           className="border px-2 py-1 rounded w-36"
         />
