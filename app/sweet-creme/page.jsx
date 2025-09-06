@@ -4,8 +4,8 @@ import Image from "next/image";
 import sweetCreme from "../../public/sweet.png";
 
 const SweetCremeReceipt = () => {
-  const [billNo, setBillNo] = useState(5000);
-  const [tokenNo, setTokenNo] = useState(2600);
+  const [billNo, setBillNo] = useState(6000);
+  const [tokenNo, setTokenNo] = useState(2700);
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [items, setItems] = useState([]);
@@ -72,12 +72,23 @@ const SweetCremeReceipt = () => {
     });
   };
 
-  // Generate random items
-  const generateItems = () => {
-    const n = Math.max(0, Math.min(numItems, menuItems.length));
-    const shuffled = [...menuItems].sort(() => 0.5 - Math.random());
-    setItems(shuffled.slice(0, n).map((item) => ({ ...item, qty: 1 })));
-  };
+// ✅ Generate random items with a max limit of 15
+const generateItems = () => {
+  const n = Math.max(1, numItems || 1); // no upper cap
+  let generated = [];
+
+  for (let i = 0; i < n; i++) {
+    const randomItem = menuItems[Math.floor(Math.random() * menuItems.length)];
+    generated.push({
+      ...randomItem,
+      qty: 1,
+  });
+  }
+
+  setItems(generated);
+};
+
+
 
   // Calculate totals
   const grossAmount = items.reduce(
