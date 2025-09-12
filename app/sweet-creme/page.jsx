@@ -4,8 +4,8 @@ import Image from "next/image";
 import sweetCreme from "../../public/sweet.png";
 
 const SweetCremeReceipt = () => {
-  const [billNo, setBillNo] = useState(6000);
-  const [tokenNo, setTokenNo] = useState(2700);
+  const [billNo, setBillNo] = useState(9000);
+  const [tokenNo, setTokenNo] = useState(4500);
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [items, setItems] = useState([]);
@@ -66,7 +66,7 @@ const SweetCremeReceipt = () => {
 
     return date.toLocaleTimeString("en-US", {
       hour: "2-digit",
-      minute: "2-digit",
+      minute: "2-digit",  
       second: "2-digit",
       hour12: true,
     });
