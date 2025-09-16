@@ -91,7 +91,7 @@ const Receipt = () => {
     useEffect(() => {
         const savedInvoice = localStorage.getItem("lastInvoice");
         if (savedInvoice) {
-            setInvoiceNo(parseInt(savedInvoice) + 1); // auto increment
+            setInvoiceNo(parseInt(savedInvoice) + 2); // auto increment on load
         }
 
         let lastTerminal = localStorage.getItem("lastTerminal");
@@ -101,10 +101,15 @@ const Receipt = () => {
         localStorage.setItem("lastTerminal", nextTerminal);
     }, []);
 
-    // Save invoice on print
+    // Save invoice and increment on print
     const handlePrint = () => {
         localStorage.setItem("lastInvoice", invoiceNo);
         window.print();
+
+        // 🔹 Increment immediately after print
+        const nextInvoice = invoiceNo + 2;
+        setInvoiceNo(nextInvoice);
+        localStorage.setItem("lastInvoice", nextInvoice);
     };
 
     // Generate random items
@@ -113,7 +118,7 @@ const Receipt = () => {
         for (let i = 0; i < numItems; i++) {
             const randomItem =
                 itemsList[Math.floor(Math.random() * itemsList.length)];
-            const randomPrice = Math.floor(Math.random() * 400) + 100; // 100–500 PKR
+            const randomPrice = Math.floor(Math.random() * 400) + 100; // 100–500
             generated.push({ name: randomItem, price: randomPrice });
         }
         setItems(generated);
