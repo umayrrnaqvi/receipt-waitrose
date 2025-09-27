@@ -206,8 +206,9 @@ const Receipt = () => {
                 </div>
 
                 {/* Transaction Info */}
-                <div className="text-[14px] border-b-2 font-bold border-dotted mt-2 pb-2 whitespace-pre-line">
-                    {formatDate(date)} {formatTime(time)}
+                <div className="text-[15px] border-b-2 font-bold border-dotted mt-2 pb-2 whitespace-pre-line">
+                    {"\n"}Date:{formatDate(date)}
+                    {"\n"}Time:   {formatTime(time)}
                     {"\n"}Invoice #: {invoiceNo}
                     {"\n"}Terminal ID: {terminalId}
                 </div>
