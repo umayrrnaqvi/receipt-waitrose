@@ -80,41 +80,40 @@ export default function HealthyDelightsReceipt() {
     const tax = +(subtotal * TAX_RATE).toFixed(2);
     const total = +(subtotal + tax).toFixed(2);
 
-    const handlePrint = async () => {
-        const num = parseInt(receiptCount);
-        if (!num || num < 1) return alert("Enter a valid number of receipts");
+   const handlePrint = async () => {
+    const num = parseInt(receiptCount);
+    if (!num || num < 1) return alert("Enter a valid number of receipts");
 
-        for (let i = 0; i < num; i++) {
-            // Calculate receipt number and fake time (2 minutes added each print)
-            const nextReceipt = receiptNo + i;
-            const now = new Date();
-            now.setMinutes(now.getMinutes() + i * 2);
+    // Parse the base time from input (HH:MM)
+    const [baseHour, baseMinute] = time ? time.split(":").map(Number) : [0, 0];
 
-            // Format time properly
-            const hours = now.getHours().toString().padStart(2, "0");
-            const minutes = now.getMinutes().toString().padStart(2, "0");
-            const seconds = now.getSeconds().toString().padStart(2, "0");
-            const fakeTime = `${hours}:${minutes}:${seconds}`;
+    for (let i = 0; i < num; i++) {
+        const nextReceipt = receiptNo + i;
 
-            // Update state so the new time shows on screen before printing
-            setReceiptNo(nextReceipt);
-            setTime(fakeTime);
+        // Start from selected date + time
+        const now = new Date();
+        now.setHours(baseHour);
+        now.setMinutes(baseMinute + i * 2); // add 2 minutes for each print
+        now.setSeconds(now.getSeconds()); // keep current seconds
 
-            // Wait a bit for React to re-render before printing
-            await new Promise((resolve) => setTimeout(resolve, 300));
+        const hours = now.getHours().toString().padStart(2, "0");
+        const minutes = now.getMinutes().toString().padStart(2, "0");
+        const seconds = now.getSeconds().toString().padStart(2, "0");
+        const fakeTime = `${hours}:${minutes}:${seconds}`;
 
-            // Print
-            window.print();
+        setReceiptNo(nextReceipt);
+        setTime(fakeTime);
 
-            // Small delay before the next iteration (so prints don’t overlap)
-            await new Promise((resolve) => setTimeout(resolve, 700));
-        }
+        await new Promise((resolve) => setTimeout(resolve, 300));
+        window.print();
+        await new Promise((resolve) => setTimeout(resolve, 700));
+    }
 
-        // Save next available number
-        const finalReceipt = receiptNo + num;
-        localStorage.setItem("healthy_receipt_no", finalReceipt);
-        setReceiptNo(finalReceipt);
-    };
+    const finalReceipt = receiptNo + num;
+    localStorage.setItem("healthy_receipt_no", finalReceipt);
+    setReceiptNo(finalReceipt);
+};
+
 
 
 
