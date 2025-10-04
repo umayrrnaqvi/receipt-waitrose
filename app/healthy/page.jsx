@@ -192,7 +192,7 @@ export default function HealthyDelightsReceipt() {
             {/* ✅ Receipt Layout */}
             <article className="bg-white w-[80mm] p-4 font-mono text-lg leading-relaxed">
                 <header className="flex flex-col items-center text-center mb-1">
-                    <Image src={healthyLogo} alt="Healthy Delights" width={85} height={85} />
+                    <Image src={healthyLogo} alt="Healthy Delights" width={95} height={95} />
                     <div className="text-[12px] whitespace-pre-line mt-1">
                         822 NY-82, Hopewell Junction, NY 12533{"\n"}Tel: (845) 592-2025
                     </div>
