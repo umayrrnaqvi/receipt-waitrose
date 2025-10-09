@@ -1,5 +1,6 @@
 'use client';
 import { useState } from "react";
+import harvestLogo from "../../public/harvest.png"
 
 const items = [
     { name: "Fresh Orange", price: 200 },
@@ -122,6 +123,12 @@ const stores = [
         address: "DHA Phase 8 at 13/L, air avenue Lahore, Pakistan",
         description: "Your trusted destination for fresh fruits, vegatables, and daily groceries."
     },
+    {
+        name: "HARVEST LANE MART LTD",
+        address: "45-C Main Boulevard, Gulberg III, Lahore, Pakistan",
+        description: "Fresh produce, quality grains, and all your daily essentials in one place."
+    },
+
     {
         name: "Al-Hira Supermarket",
         address: "Gulberg, Lahore, Punjab, Pakistan",
@@ -328,22 +335,33 @@ const Page = () => {
             <div id="receipt" className="receipt-container max-w-sm mx-auto bg-white border border-black p-4 text-sm print:w-[250px]">
 
                 <div className="text-center mb-4 leading-tight">
-                    <h2 className="text-[50px] font-sans font-bold tracking-wide text-center">
-                        {selectedStore.name}
-                    </h2>
+                    {/* Show only logo for Harvest Lane Mart */}
+                    {selectedStore.name === "HARVEST LANE MART LTD" ? (
+                        <div className="flex justify-center mb-2">
+                            <img
+                                src={harvestLogo.src}
+                                alt="Harvest Lane Mart Logo"
+                                className="w-40 h-auto object-contain mx-auto"
+                            />
+                        </div>
+                    ) : (
+                        <h2 className="text-[50px] font-sans font-bold tracking-wide text-center">
+                            {selectedStore.name}
+                        </h2>
+                    )}
+
                     <p className="text-[18px] font-bold font-mono mt-5">
                         {selectedStore.address}
                     </p>
 
-
-                    <div className="text-left text-[18px] font-bold font-mono mt-1 border-b-2 border-dashed">
+                    <div className="text-left text-[18px] font-bold font-mono mt-1 border-b border-dotted">
                         <p>Date: {formatDate(date)}</p>
                         <p>Time: {time || "N/A"}</p>
                     </div>
                 </div>
 
                 <div>
-                    <p className="flex font-mono font-bold text-[18px] gap-2 pb-2 border-b-2 border-dashed">
+                    <p className="flex font-mono font-bold text-[18px] gap-2 pb-2 border-b border-dotted">
                         <span>RECEIPT:</span>
                         <span>{orderId}</span>
                     </p>
@@ -364,7 +382,7 @@ const Page = () => {
                     </div>
                 )}
 
-                <div className="pt-2 mt-4 text-sm font-mono border-t border-dashed pb-5">
+                <div className="pt-2 mt-4 text-sm font-mono border-t border-dotted pb-5">
                     {/* Total */}
                     <div className="flex text-[17px] justify-end font-bold tracking-widest">
                         <span>Total:</span>
@@ -376,12 +394,12 @@ const Page = () => {
                     </div>
                 </div>
 
-                <div className="flex gap-5 font-bold text-[17px] font-mono tracking-widest border-b-2 border-dashed pb-2">
+                <div className="flex gap-5 font-bold text-[17px] font-mono tracking-widest border-b border-dotted pb-2">
                     <span>Items Sold:</span>
                     <span>{totalItemsCount}</span>
                 </div>
 
-                <div className="flex justify-between text-md font-bold font-mono tracking-widest border-b-2 border-dashed pt-1 pb-2">
+                <div className="flex justify-between text-md font-bold font-mono tracking-widest border-b border-dotted pt-1 pb-2">
                     <div>
                         <span>Payment Method: Cash</span>
                     </div>
@@ -391,7 +409,7 @@ const Page = () => {
                     </div>
                 </div>
 
-                <div className="w-full mx-auto px-4 flex flex-col items-center text-center text-lg border-b-2 border-dashed">
+                <div className="w-full mx-auto px-4 flex flex-col items-center text-center text-lg border-b border-dotted">
                     <p className="text-[16px] text-center font-bold mt-6 leading-tight">
                         Thank you for shopping at <span className="font-semibold">{selectedStore.name}</span>!<br />
                         {selectedStore.description}<br />

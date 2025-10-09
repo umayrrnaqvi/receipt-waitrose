@@ -133,7 +133,7 @@ export default function HealthyDelightsReceipt() {
         return `${h}:${minutes}:${seconds} ${ampm}`;
     };
 
-    const fmt = (v) => `$ ${v.toFixed(2)}`;
+    const fmt = (v) => `Rs ${v.toFixed(2)}`;
 
     return (
         <main className="flex flex-col items-center p-4 min-h-screen bg-white">
