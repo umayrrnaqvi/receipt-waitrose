@@ -121,16 +121,28 @@ const Receipt = () => {
         localStorage.setItem("lastTerminal", nextTerminal);
     };
 
-    // 🧾 Print multiple receipts automatically
+    // 🧾 Print multiple receipts automatically (each with new random items)
     const printMultipleReceipts = async () => {
         let currentInvoice = invoiceNo;
         let currentTime = time;
 
         for (let i = 0; i < numReceipts; i++) {
-            // Set the updated invoice number before printing
+            // 🔹 Generate new random items before each print
+            let generated = [];
+            for (let j = 0; j < numItems; j++) {
+                const randomItem = itemsList[Math.floor(Math.random() * itemsList.length)];
+                const randomPrice = Math.floor(Math.random() * 400) + 100; // 100–500
+                generated.push({ name: randomItem, price: randomPrice });
+            }
+            setItems(generated);
+
+            // Wait a short moment to ensure React updates items
+            await new Promise((resolve) => setTimeout(resolve, 300));
+
+            // 🔹 Set the updated invoice number before printing
             setInvoiceNo(currentInvoice);
 
-            // Update time (+2 minutes each print)
+            // 🔹 Update time (+2 minutes for each print)
             if (currentTime) {
                 const [hours, minutes] = currentTime.split(":").map(Number);
                 const totalMinutes = hours * 60 + minutes + 2; // add 2 minutes
@@ -143,28 +155,28 @@ const Receipt = () => {
                 currentTime = formattedTime;
             }
 
-            // Wait 1 second between prints
-            await new Promise((resolve) => setTimeout(resolve, 1000));
-
-            // Print the receipt
+            // 🔹 Print the receipt
             window.print();
 
-            // Increment invoice number
+            // 🔹 Increment invoice and terminal
             currentInvoice += 1;
             localStorage.setItem("lastInvoice", currentInvoice);
 
-            // Increment terminal ID (cycle 1 → 5)
             let currentTerminal = parseInt(localStorage.getItem("lastTerminal")) || 1;
             let nextTerminal = currentTerminal + 1;
             if (nextTerminal > 5) nextTerminal = 1;
             setTerminalId(nextTerminal.toString().padStart(2, "0"));
             localStorage.setItem("lastTerminal", nextTerminal);
+
+            // Wait 1 second before next print
+            await new Promise((resolve) => setTimeout(resolve, 1000));
         }
 
-        // Save final invoice number after all prints
+        // Save final invoice number
         setInvoiceNo(currentInvoice);
         localStorage.setItem("lastInvoice", currentInvoice);
     };
+
 
 
 
