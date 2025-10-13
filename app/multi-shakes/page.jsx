@@ -86,6 +86,8 @@ const Receipt = () => {
 
     const [invoiceNo, setInvoiceNo] = useState(1000); // Starting invoice
     const [terminalId, setTerminalId] = useState("01");
+    const [numReceipts, setNumReceipts] = useState(1);
+
 
     // Load saved invoice and terminal ID
     useEffect(() => {
@@ -101,16 +103,70 @@ const Receipt = () => {
         localStorage.setItem("lastTerminal", nextTerminal);
     }, []);
 
-    // Save invoice and increment on print
+    // 🧾 Print a single receipt
     const handlePrint = () => {
         localStorage.setItem("lastInvoice", invoiceNo);
         window.print();
 
-        // 🔹 Increment immediately after print
-        const nextInvoice = invoiceNo + 2;
+        // Increment invoice by 1 after print
+        const nextInvoice = invoiceNo + 1;
         setInvoiceNo(nextInvoice);
         localStorage.setItem("lastInvoice", nextInvoice);
+
+        // Increment terminal by 1 (cycle 1 → 5)
+        let currentTerminal = parseInt(terminalId);
+        let nextTerminal = currentTerminal + 1;
+        if (nextTerminal > 5) nextTerminal = 1;
+        setTerminalId(nextTerminal.toString().padStart(2, "0"));
+        localStorage.setItem("lastTerminal", nextTerminal);
     };
+
+    // 🧾 Print multiple receipts automatically
+    const printMultipleReceipts = async () => {
+        let currentInvoice = invoiceNo;
+        let currentTime = time;
+
+        for (let i = 0; i < numReceipts; i++) {
+            // Set the updated invoice number before printing
+            setInvoiceNo(currentInvoice);
+
+            // Update time (+2 minutes each print)
+            if (currentTime) {
+                const [hours, minutes] = currentTime.split(":").map(Number);
+                const totalMinutes = hours * 60 + minutes + 2; // add 2 minutes
+                const newHours = Math.floor(totalMinutes / 60) % 24;
+                const newMinutes = totalMinutes % 60;
+                const formattedTime = `${newHours.toString().padStart(2, "0")}:${newMinutes
+                    .toString()
+                    .padStart(2, "0")}`;
+                setTime(formattedTime);
+                currentTime = formattedTime;
+            }
+
+            // Wait 1 second between prints
+            await new Promise((resolve) => setTimeout(resolve, 1000));
+
+            // Print the receipt
+            window.print();
+
+            // Increment invoice number
+            currentInvoice += 1;
+            localStorage.setItem("lastInvoice", currentInvoice);
+
+            // Increment terminal ID (cycle 1 → 5)
+            let currentTerminal = parseInt(localStorage.getItem("lastTerminal")) || 1;
+            let nextTerminal = currentTerminal + 1;
+            if (nextTerminal > 5) nextTerminal = 1;
+            setTerminalId(nextTerminal.toString().padStart(2, "0"));
+            localStorage.setItem("lastTerminal", nextTerminal);
+        }
+
+        // Save final invoice number after all prints
+        setInvoiceNo(currentInvoice);
+        localStorage.setItem("lastInvoice", currentInvoice);
+    };
+
+
 
     // Generate random items
     const generateItems = () => {
@@ -193,6 +249,23 @@ const Receipt = () => {
                 >
                     Generate
                 </button>
+
+                <input
+                    type="number"
+                    placeholder="Receipts"
+                    value={numReceipts}
+                    min="1"
+                    onChange={(e) => setNumReceipts(Number(e.target.value))}
+                    className="border px-2 py-1 rounded w-32"
+                />
+
+                <button
+                    onClick={printMultipleReceipts}
+                    className="bg-green-600 text-white px-4 py-1 rounded"
+                >
+                    Print Multi
+                </button>
+
             </div>
 
             {/* Receipt */}
