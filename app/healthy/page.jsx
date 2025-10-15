@@ -4,39 +4,119 @@ import Image from "next/image";
 import healthyLogo from "../../public/healthy.png";
 
 // 🍎 Healthy Delights Store — Fresh Produce List
-export const healthyDelightsItems = [
-    { name: "Organic Apples (Honeycrisp)", price: 3.29 },
-    { name: "Bananas (Fair Trade)", price: 1.59 },
-    { name: "Mandarins (Seedless)", price: 3.49 },
-    { name: "Mango (Kent Variety)", price: 2.99 },
-    { name: "Pineapple (Fresh Cut)", price: 4.79 },
-    { name: "Green Grapes (Seedless)", price: 3.89 },
-    { name: "Strawberries (Organic Box)", price: 5.49 },
-    { name: "Blueberries (Wild Harvested)", price: 5.99 },
-    { name: "Watermelon Slices", price: 2.49 },
-    { name: "Bartlett Pears", price: 2.89 },
-    { name: "Kiwi (New Zealand)", price: 0.99 },
-    { name: "Papaya (Caribbean)", price: 3.79 },
-    { name: "Pomegranate (Premium)", price: 3.99 },
-    { name: "Lemon (Unwaxed)", price: 1.19 },
-    { name: "Peaches (White Flesh)", price: 3.59 },
-    { name: "Avocado (Ripe & Ready)", price: 2.49 },
-    { name: "Tomatoes (Vine Ripened)", price: 2.79 },
-    { name: "Baby Potatoes (Golden)", price: 2.29 },
-    { name: "Onions (Red Organic)", price: 1.99 },
-    { name: "Carrots (Organic Bunch)", price: 1.89 },
-    { name: "Broccoli (Fresh Cut)", price: 2.99 },
-    { name: "Spinach (Washed & Ready)", price: 2.69 },
-    { name: "Cucumbers (Mini)", price: 1.79 },
-    { name: "Romaine Lettuce", price: 1.99 },
-    { name: "Cauliflower (White Head)", price: 3.49 },
-    { name: "Bell Peppers (Tri-Color Pack)", price: 4.29 },
-    { name: "Zucchini (Organic)", price: 2.49 },
-    { name: "Garlic Bulbs", price: 1.59 },
-    { name: "Fresh Ginger Root", price: 3.29 },
-    { name: "Eggplant (Aubergine)", price: 2.89 },
-    { name: "Green Beans (Tender)", price: 3.49 },
-    { name: "Kale (Curly)", price: 2.39 },
+const healthyDelightsItems = [
+    { name: "Fresh Orange", price: 200 },
+    { name: "Fresh Mango", price: 300 },
+    { name: "Fresh Pineapple", price: 180 },
+    { name: "Fresh Grapes", price: 280 },
+    { name: "Fresh Watermelon", price: 50 },
+    { name: "Fresh Strawberry", price: 500 },
+    { name: "Fresh Blueberry", price: 300 },
+    { name: "Fresh Raspberry", price: 450 },
+    { name: "Fresh Blackberry", price: 400 },
+    { name: "Fresh Kiwi", price: 80 },
+    { name: "Fresh Guava", price: 100 },
+    { name: "Fresh Peach", price: 180 },
+
+
+    // Vegetables start here
+    { name: "Fresh Potato", price: 80 },
+    { name: "Fresh Tomato", price: 100 },
+    { name: "Fresh Onion", price: 90 },
+    { name: "Fresh Carrot", price: 120 },
+    { name: "Fresh Cabbage", price: 100 },
+    { name: "Fresh Cauliflower", price: 120 },
+    { name: "Fresh Spinach", price: 80 },
+    { name: "Fresh Lettuce", price: 200 },
+    { name: "Fresh Kale", price: 300 },
+    { name: "Fresh Broccoli", price: 250 },
+    { name: "Fresh Bell Pepper", price: 300 },
+    { name: "Fresh Green Chili", price: 180 },
+    { name: "Fresh Zucchini", price: 160 },
+    { name: "Fresh Eggplant", price: 100 },
+    { name: "Fresh Okra", price: 120 },
+    { name: "Fresh Bitter Gourd", price: 140 },
+    { name: "Fresh Bottle Gourd", price: 100 },
+    { name: "Fresh Ridge Gourd", price: 120 },
+    { name: "Fresh Tinda", price: 90 },
+    { name: "Fresh Turnip", price: 100 },
+    { name: "Fresh Radish", price: 100 },
+    { name: "Fresh Beetroot", price: 150 },
+    { name: "Fresh Pumpkin", price: 80 },
+    { name: "Fresh Ash Gourd", price: 120 },
+    { name: "Fresh Snake Gourd", price: 130 },
+    { name: "Fresh Ivy Gourd", price: 150 },
+    { name: "Fresh French Beans", price: 200 },
+    { name: "Fresh Green Beans", price: 180 },
+    { name: "Fresh Cluster Beans", price: 170 },
+    { name: "Fresh Drumstick", price: 200 },
+    { name: "Fresh Corn", price: 100 },
+    { name: "Fresh Sweet Corn", price: 150 },
+    { name: "Fresh Green Peas", price: 220 },
+    { name: "Fresh Spring Onion", price: 100 },
+    { name: "Fresh Garlic", price: 450 },
+    { name: "Fresh Ginger", price: 400 },
+    { name: "Fresh Curry Leaves", price: 150 },
+    { name: "Fresh Mint Leaves", price: 100 },
+    { name: "Fresh Coriander", price: 80 },
+    { name: "Fresh Basil", price: 200 },
+    { name: "Fresh Lemongrass", price: 300 },
+    { name: "Fresh Celery", price: 250 },
+    { name: "Fresh Leeks", price: 180 },
+    { name: "Fresh Arugula", price: 350 },
+    { name: "Fresh Watercress", price: 300 },
+    { name: "Fresh Artichoke", price: 500 },
+    { name: "Fresh Asparagus", price: 400 },
+    { name: "Fresh Brussel Sprouts", price: 500 },
+    { name: "Fresh Chayote", price: 250 },
+    { name: "Fresh Edamame", price: 400 },
+    { name: "Fresh Parsnip", price: 300 },
+    { name: "Fresh Kohlrabi", price: 250 },
+    { name: "Fresh Mustard Greens", price: 180 },
+    { name: "Fresh Amaranth", price: 200 },
+    { name: "Fresh Swiss Chard", price: 220 },
+    { name: "Fresh Yam", price: 180 },
+    { name: "Fresh Sweet Potato", price: 150 },
+    { name: "Fresh Tapioca", price: 140 },
+    { name: "Fresh Lotus Root", price: 300 },
+    { name: "Fresh Bamboo Shoots", price: 400 },
+    { name: "Fresh Fennel", price: 250 },
+    { name: "Fresh Sorrel", price: 180 },
+    { name: "Fresh Purslane", price: 150 },
+    { name: "Fresh Nopal", price: 300 },
+    { name: "Fresh Seaweed", price: 300 },
+    { name: "Fresh Radicchio", price: 350 },
+    { name: "Fresh Endive", price: 320 },
+    { name: "Fresh Romanesco", price: 500 },
+    { name: "Fresh Pak Choi", price: 300 },
+    { name: "Fresh Chinese Cabbage", price: 250 },
+    { name: "Fresh Yardlong Bean", price: 200 },
+    { name: "Fresh Snow Peas", price: 300 },
+    { name: "Fresh Taro", price: 220 },
+    { name: "Fresh Daikon", price: 180 },
+    { name: "Fresh Cassava", price: 200 },
+    { name: "Fresh Sunchoke", price: 400 },
+    { name: "Fresh Jicama", price: 300 },
+    { name: "Fresh Malabar Spinach", price: 200 },
+    { name: "Fresh Mizuna", price: 350 },
+    { name: "Fresh Tatsoi", price: 300 },
+    { name: "Fresh Wasabi Root", price: 400 },
+    { name: "Fresh Horseradish", price: 350 },
+    { name: "Fresh Chicory", price: 250 },
+    { name: "Fresh Dandelion Greens", price: 220 },
+    { name: "Fresh Celery Root", price: 280 },
+    { name: "Fresh Pepper Leaves", price: 180 },
+    { name: "Fresh Banana Flower", price: 200 },
+    { name: "Fresh Lotus Stem", price: 280 },
+    { name: "Fresh Pea Shoots", price: 300 },
+    { name: "Fresh Fenugreek Leaves", price: 150 },
+    { name: "Fresh Colocasia Leaves", price: 200 },
+    { name: "Fresh Cress", price: 250 },
+    { name: "Fresh Snow Fungus", price: 400 },
+    { name: "Fresh Mushrooms", price: 350 },
+    { name: "Fresh Button Mushroom", price: 320 },
+    { name: "Fresh Shiitake Mushroom", price: 400 },
+    { name: "Fresh Oyster Mushroom", price: 500 }
 ];
 
 const TAX_RATE = 0.05;
@@ -80,39 +160,39 @@ export default function HealthyDelightsReceipt() {
     const tax = +(subtotal * TAX_RATE).toFixed(2);
     const total = +(subtotal + tax).toFixed(2);
 
-   const handlePrint = async () => {
-    const num = parseInt(receiptCount);
-    if (!num || num < 1) return alert("Enter a valid number of receipts");
+    const handlePrint = async () => {
+        const num = parseInt(receiptCount);
+        if (!num || num < 1) return alert("Enter a valid number of receipts");
 
-    // Parse the base time from input (HH:MM)
-    const [baseHour, baseMinute] = time ? time.split(":").map(Number) : [0, 0];
+        // Parse the base time from input (HH:MM)
+        const [baseHour, baseMinute] = time ? time.split(":").map(Number) : [0, 0];
 
-    for (let i = 0; i < num; i++) {
-        const nextReceipt = receiptNo + i;
+        for (let i = 0; i < num; i++) {
+            const nextReceipt = receiptNo + i;
 
-        // Start from selected date + time
-        const now = new Date();
-        now.setHours(baseHour);
-        now.setMinutes(baseMinute + i * 2); // add 2 minutes for each print
-        now.setSeconds(now.getSeconds()); // keep current seconds
+            // Start from selected date + time
+            const now = new Date();
+            now.setHours(baseHour);
+            now.setMinutes(baseMinute + i * 2); // add 2 minutes for each print
+            now.setSeconds(now.getSeconds()); // keep current seconds
 
-        const hours = now.getHours().toString().padStart(2, "0");
-        const minutes = now.getMinutes().toString().padStart(2, "0");
-        const seconds = now.getSeconds().toString().padStart(2, "0");
-        const fakeTime = `${hours}:${minutes}:${seconds}`;
+            const hours = now.getHours().toString().padStart(2, "0");
+            const minutes = now.getMinutes().toString().padStart(2, "0");
+            const seconds = now.getSeconds().toString().padStart(2, "0");
+            const fakeTime = `${hours}:${minutes}:${seconds}`;
 
-        setReceiptNo(nextReceipt);
-        setTime(fakeTime);
+            setReceiptNo(nextReceipt);
+            setTime(fakeTime);
 
-        await new Promise((resolve) => setTimeout(resolve, 300));
-        window.print();
-        await new Promise((resolve) => setTimeout(resolve, 700));
-    }
+            await new Promise((resolve) => setTimeout(resolve, 300));
+            window.print();
+            await new Promise((resolve) => setTimeout(resolve, 700));
+        }
 
-    const finalReceipt = receiptNo + num;
-    localStorage.setItem("healthy_receipt_no", finalReceipt);
-    setReceiptNo(finalReceipt);
-};
+        const finalReceipt = receiptNo + num;
+        localStorage.setItem("healthy_receipt_no", finalReceipt);
+        setReceiptNo(finalReceipt);
+    };
 
 
 
@@ -192,9 +272,9 @@ export default function HealthyDelightsReceipt() {
             {/* ✅ Receipt Layout */}
             <article className="bg-white w-[80mm] p-4 font-mono text-lg leading-relaxed">
                 <header className="flex flex-col items-center text-center mb-1">
-                    <Image src={healthyLogo} alt="Healthy Delights" width={100} height={100} />
+                    <Image src={healthyLogo} alt="Healthy Delights" width={120} height={120} />
                     <div className="text-[12px] whitespace-pre-line mt-1">
-                        822 NY-82, Hopewell Junction, NY 12533{"\n"}Tel: (845) 592-2025
+                        Shop #12, Civic Center, Satellite Town, Bahawalpur{"\n"}Tel: (062) 288-4521
                     </div>
                     <div className="text-sm ">healthydelightscafe.shop</div>
                 </header>
