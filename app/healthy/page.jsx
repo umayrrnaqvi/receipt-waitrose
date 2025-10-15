@@ -126,7 +126,6 @@ export default function HealthyDelightsReceipt() {
     const [date, setDate] = useState("");
     const [time, setTime] = useState("");
     const [terminal, setTerminal] = useState("01");
-    const [cashier, setCashier] = useState("Cashier 1");
     const [items, setItems] = useState([]);
     const [randomCount, setRandomCount] = useState("");
     const [receiptCount, setReceiptCount] = useState(1);
@@ -295,10 +294,6 @@ export default function HealthyDelightsReceipt() {
                     <div className="flex justify-between mt-1">
                         <span>Terminal</span>
                         <span>{terminal}</span>
-                    </div>
-                    <div className="flex justify-between mt-1">
-                        <span>Cashier</span>
-                        <span>{cashier}</span>
                     </div>
                 </section>
 
