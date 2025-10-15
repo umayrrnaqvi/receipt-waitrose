@@ -162,6 +162,8 @@ export default function HealthyDelightsReceipt() {
     const handlePrint = async () => {
         const num = parseInt(receiptCount);
         if (!num || num < 1) return alert("Enter a valid number of receipts");
+        if (!randomCount || randomCount <= 0)
+            return alert("Enter a valid number of items before printing");
 
         // Parse the base time from input (HH:MM)
         const [baseHour, baseMinute] = time ? time.split(":").map(Number) : [0, 0];
@@ -169,32 +171,41 @@ export default function HealthyDelightsReceipt() {
         for (let i = 0; i < num; i++) {
             const nextReceipt = receiptNo + i;
 
-            // Start from selected date + time
+            // 🕒 Generate dynamic time
             const now = new Date();
             now.setHours(baseHour);
-            now.setMinutes(baseMinute + i * 2); // add 2 minutes for each print
-            now.setSeconds(now.getSeconds()); // keep current seconds
-
+            now.setMinutes(baseMinute + i * 2); // +2 min per receipt
+            now.setSeconds(now.getSeconds());
             const hours = now.getHours().toString().padStart(2, "0");
             const minutes = now.getMinutes().toString().padStart(2, "0");
             const seconds = now.getSeconds().toString().padStart(2, "0");
             const fakeTime = `${hours}:${minutes}:${seconds}`;
 
+            // 🍎 Generate fresh random items each time
+            const count = parseInt(randomCount);
+            const shuffled = [...healthyDelightsItems].sort(() => 0.5 - Math.random());
+            const selected = shuffled.slice(0, count).map((item, idx) => ({
+                id: Date.now() + idx,
+                name: item.name,
+                qty: Math.floor(Math.random() * 3) + 1,
+                price: item.price,
+            }));
+            setItems(selected);
+
+            // Update receipt details
             setReceiptNo(nextReceipt);
             setTime(fakeTime);
 
-            await new Promise((resolve) => setTimeout(resolve, 300));
+            // Wait a bit to let items update before printing
+            await new Promise((resolve) => setTimeout(resolve, 400));
             window.print();
-            await new Promise((resolve) => setTimeout(resolve, 700));
+            await new Promise((resolve) => setTimeout(resolve, 600));
         }
 
         const finalReceipt = receiptNo + num;
         localStorage.setItem("healthy_receipt_no", finalReceipt);
         setReceiptNo(finalReceipt);
     };
-
-
-
 
     const formatDate = (d) => {
         if (!d) return "";
