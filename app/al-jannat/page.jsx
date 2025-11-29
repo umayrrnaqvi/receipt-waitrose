@@ -354,7 +354,7 @@ const Page = () => {
                         {selectedStore.address}
                     </p>
 
-                    <div className="text-left text-[18px] font-bold font-mono mt-1 border-b border-dotted">
+                    <div className="text-right text-[18px] font-bold font-mono mt-1 border-b border-dotted">
                         <p>Date: {formatDate(date)}</p>
                         <p>Time: {time || "N/A"}</p>
                     </div>
